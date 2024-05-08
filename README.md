@@ -25,6 +25,7 @@ Simulate the training and train barbarians and/or archers. As a gamer:
 
 You should be able to input the number of barbarians and/or archers you would like to train.
 You should be able to see how many troops are trained and available in the troop camp after training completes.
+-----------------------
 ## Analysis
 ### package : org.amaap.troopsimulationgame
  ## Domain
