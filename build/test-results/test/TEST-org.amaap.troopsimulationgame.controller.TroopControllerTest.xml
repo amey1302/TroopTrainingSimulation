@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.amaap.troopsimulationgame.controller.TroopControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-08T12:34:11" hostname="LAPTOP-205J7BQ6" time="0.026">
+<testsuite name="org.amaap.troopsimulationgame.controller.TroopControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-05-08T19:01:51" hostname="LAPTOP-205J7BQ6" time="0.053">
   <properties/>
-  <testcase name="shouldBeAbleToReturnOkIfTroopAreCreated()" classname="org.amaap.troopsimulationgame.controller.TroopControllerTest" time="0.026"/>
+  <testcase name="shouldBeAbleToReturnOkIfTroopAreCreated()" classname="org.amaap.troopsimulationgame.controller.TroopControllerTest" time="0.042"/>
+  <testcase name="shouldBeAbleToReturnBAD_REQUESTIfTroopCountIsInvalid()" classname="org.amaap.troopsimulationgame.controller.TroopControllerTest" time="0.006"/>
+  <testcase name="shouldBeAbleToReturnBAD_REQUESTIfTroopTypeIsInvalid()" classname="org.amaap.troopsimulationgame.controller.TroopControllerTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

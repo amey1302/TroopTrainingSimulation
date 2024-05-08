@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.amaap.troopsimulationgame.service.TroopServiceTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2024-05-08T19:01:52" hostname="LAPTOP-205J7BQ6" time="0.021">
+  <properties/>
+  <testcase name="shouldBeAbleToCreateTroopWhenCountAndTypeAreValid()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.003"/>
+  <testcase name="shouldBeAbleToThrowInvalidTroopTypeExceptionWhenTypeContainsDigits()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.002"/>
+  <testcase name="shouldBeAbleToThrowInvalidTroopTypeExceptionWhenTypeIsNotValid()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.002"/>
+  <testcase name="shouldBeAbleToThrowInvalidTroopTypeExceptionWhenTypeContainsSpaces()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.001"/>
+  <testcase name="shouldBeAbleToThrowInvalidTroopTypeExceptionWhenTypeIsEmpty()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.002"/>
+  <testcase name="shouldBeAbleToThrowInvalidTroopTypeExceptionWhenTypeIsNull()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.001"/>
+  <testcase name="shouldBeAbleToThrowInvalidTroopCountExceptionWhenCountIsNegative()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.001"/>
+  <testcase name="shouldBeAbleToThrowInvalidTroopCountExceptionWhenCountIsZero()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

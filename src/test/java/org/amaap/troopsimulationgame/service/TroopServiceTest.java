@@ -1,19 +1,27 @@
 package org.amaap.troopsimulationgame.service;
 
+import org.amaap.troopsimulationgame.repository.TroopRepository;
+import org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepository;
+import org.amaap.troopsimulationgame.repository.impl.db.InMemoryDatabase;
+import org.amaap.troopsimulationgame.repository.impl.db.impl.FakeDatabase;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopCountException;
-import org.amaap.troopsimulationgame.service.exception.InvalidTroopDataException;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTypeException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class TroopServiceTest {
     private TroopService troopService;
+    private TroopRepository repository;
+    private InMemoryDatabase database;
 
     @BeforeEach
     void setUp() {
-        troopService = new TroopService();
+        database = new FakeDatabase();
+        repository = new InMemoryTroopRepository(database);
+        troopService = new TroopService(repository);
     }
 
     @Test
@@ -87,7 +95,7 @@ class TroopServiceTest {
     }
 
     @Test
-    void shouldBeAbleToCreateTroopWhenCountAndTypeAreValid(){
+    void shouldBeAbleToCreateTroopWhenCountAndTypeAreValid() {
         // arrange
         int troopCount = 10;
         String troopType = "Barbarian";

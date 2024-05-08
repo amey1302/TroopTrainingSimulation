@@ -5,10 +5,10 @@ Troop training simulation is inspired by Clash of Clans games. As a gaming progr
 Army Troops
 There are two kinds of troops: Archers and Barbarians. Each trooper (archer/barbarian) has the following characteristics:
 
-|Troops | Training Time| Training Cost|Weapon|
--------|-------|----------|---|
-|Barbarian| 3 |10 |Sword|
-|Archer | 6|20 |Bow and Arrow|
+| Troops    | Training Time | Training Cost | Weapon        |
+|-----------|---------------|---------------|---------------|
+| Barbarian | 3             | 10            | Sword         |
+| Archer    | 6             | 20            | Bow and Arrow |
 
 Barracks
 Barracks are where each trooper gets trained. The following rules apply to barracks:

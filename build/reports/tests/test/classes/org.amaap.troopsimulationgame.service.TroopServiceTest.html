@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - TroopControllerTest</title>
+<title>Test results - TroopServiceTest</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>TroopControllerTest</h1>
+<h1>TroopServiceTest</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/org.amaap.troopsimulationgame.controller.html">org.amaap.troopsimulationgame.controller</a> &gt; TroopControllerTest</div>
+<a href="../packages/org.amaap.troopsimulationgame.service.html">org.amaap.troopsimulationgame.service</a> &gt; TroopServiceTest</div>
 <div id="summary">
 <table>
 <tr>
@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">3</div>
+<div class="counter">8</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.050s</div>
+<div class="counter">0.014s</div>
 <p>duration</p>
 </div>
 </td>
@@ -75,18 +75,43 @@
 </tr>
 </thead>
 <tr>
-<td class="success">shouldBeAbleToReturnBAD_REQUESTIfTroopCountIsInvalid()</td>
-<td class="success">0.006s</td>
+<td class="success">shouldBeAbleToCreateTroopWhenCountAndTypeAreValid()</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">shouldBeAbleToReturnBAD_REQUESTIfTroopTypeIsInvalid()</td>
+<td class="success">shouldBeAbleToThrowInvalidTroopCountExceptionWhenCountIsNegative()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">shouldBeAbleToThrowInvalidTroopCountExceptionWhenCountIsZero()</td>
 <td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">shouldBeAbleToReturnOkIfTroopAreCreated()</td>
-<td class="success">0.042s</td>
+<td class="success">shouldBeAbleToThrowInvalidTroopTypeExceptionWhenTypeContainsDigits()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">shouldBeAbleToThrowInvalidTroopTypeExceptionWhenTypeContainsSpaces()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">shouldBeAbleToThrowInvalidTroopTypeExceptionWhenTypeIsEmpty()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">shouldBeAbleToThrowInvalidTroopTypeExceptionWhenTypeIsNotValid()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">shouldBeAbleToThrowInvalidTroopTypeExceptionWhenTypeIsNull()</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 </table>
