@@ -1,4 +1,4 @@
-package org.amaap.troopsimulationgame.controller;
+package org.amaap.troopsimulationgame;
 
 import com.google.inject.AbstractModule;
 
