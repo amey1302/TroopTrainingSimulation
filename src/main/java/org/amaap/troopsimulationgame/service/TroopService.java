@@ -1,10 +1,17 @@
 package org.amaap.troopsimulationgame.service;
 
-import jakarta.inject.Inject;
-import org.amaap.troopsimulationgame.domain.model.valueobjects.Troop;
+import com.google.inject.Inject;
+import org.amaap.troopsimulationgame.domain.model.Trooper;
+import org.amaap.troopsimulationgame.domain.model.valueobjects.TroopType;
 import org.amaap.troopsimulationgame.repository.TroopRepository;
-import org.amaap.troopsimulationgame.service.exception.InvalidTroopCountException;
+import org.amaap.troopsimulationgame.service.exception.InvalidTroopTrainingTimeAndCostException;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTypeException;
+import org.amaap.troopsimulationgame.service.exception.InvalidWeaponException;
+
+import java.util.EnumSet;
+
+import static org.amaap.troopsimulationgame.service.validator.TroopValidator.isInvalid;
+import static org.amaap.troopsimulationgame.service.validator.TroopValidator.isInvalidType;
 
 public class TroopService {
     private TroopRepository troopRepository;
@@ -14,34 +21,21 @@ public class TroopService {
         this.troopRepository = troopRepository;
     }
 
-    public void create(int troopCount, String troopType) throws InvalidTroopCountException, InvalidTroopTypeException {
-        if (troopCount <= 0) throw new InvalidTroopCountException("" + troopCount);
-        if (isInvalid(troopType)) throw new InvalidTroopTypeException("" + troopType);
-        troopRepository.insert(troopCount,troopType);
-    }
-
-    private boolean isInvalid(String troopType) {
-        if (troopType == null || troopType.isEmpty()) {
-            return true;
-        }
-        if (troopType.matches(".*\\s+.*")) {
-            return true;
-        }
-        if (!isValidTroopType(troopType)) {
-            return true;
-        }
-        if (troopType.matches(".*\\d+.*")) {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean isValidTroopType(String troopType) {
-        for (Troop troop : Troop.values()) {
-            if (troop.getTypeName().equalsIgnoreCase(troopType)) {
-                return true;
+    public void create(String troopType, int trainingCost, int trainingTime, String weapon) throws InvalidTroopTrainingTimeAndCostException, InvalidTroopTypeException, InvalidWeaponException {
+        if (trainingCost <= 0) throw new InvalidTroopTrainingTimeAndCostException("" + trainingCost);
+        if (trainingTime <= 0) throw new InvalidTroopTrainingTimeAndCostException("" + trainingTime);
+        if (isInvalidType(troopType)) throw new InvalidTroopTypeException("" + troopType);
+        if(isInvalid(weapon)) throw new InvalidWeaponException(""+weapon);
+        Trooper trooper = null;
+        if (EnumSet.allOf(TroopType.class).contains(troopType)) {
+            if (troopType.equals(TroopType.Archer)) {
+                trooper = new Trooper(trainingTime, trainingCost, weapon);
+            } else if (troopType.equals(TroopType.Barbarian)) {
+                trooper = new Trooper(trainingTime, trainingCost, weapon);
             }
         }
-        return false;
+        troopRepository.insert(trooper);
     }
+
+
 }
