@@ -1,7 +1,7 @@
 package org.amaap.troopsimulationgame.service.exception;
 
-public class InvalidTroopCountException extends InvalidTroopDataException {
-    public InvalidTroopCountException(String message) {
+public class InvalidTroopTrainingTimeAndCostException extends InvalidTroopDataException {
+    public InvalidTroopTrainingTimeAndCostException(String message) {
         super(message);
     }
 }
