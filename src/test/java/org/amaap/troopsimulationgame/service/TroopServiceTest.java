@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class TroopServiceTest {
+class TroopTypeServiceTest {
     private TroopService troopService;
     private TroopRepository repository;
     private InMemoryDatabase database;
