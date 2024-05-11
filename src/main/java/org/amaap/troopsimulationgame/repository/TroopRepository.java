@@ -1,15 +1,12 @@
 package org.amaap.troopsimulationgame.repository;
 
+import org.amaap.troopsimulationgame.domain.model.Trooper;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTypeException;
 
 import java.util.List;
 
 public interface TroopRepository {
-    void insert(int troopCount, String troopType) throws InvalidTroopTypeException;
+    void insert(Trooper trooper) throws InvalidTroopTypeException;
 
-    List<Object> getBarbarians();
-
-    List<Object> getArchers();
-
-    List<Object> getTroopers();
+    List<Trooper> getTroopers();
 }
