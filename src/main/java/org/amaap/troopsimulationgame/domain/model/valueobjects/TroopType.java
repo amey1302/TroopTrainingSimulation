@@ -1,11 +1,11 @@
 package org.amaap.troopsimulationgame.domain.model.valueobjects;
 
-public enum Troop {
+public enum TroopType {
     Barbarian("Barbarian"), Archer("Archer");
 
     private final String typeName;
 
-    Troop(String typeName) {
+    TroopType(String typeName) {
         this.typeName = typeName;
     }
 
