@@ -3,6 +3,8 @@ package org.amaap.troopsimulationgame.repository.impl;
 import org.amaap.troopsimulationgame.domain.model.Archer;
 import org.amaap.troopsimulationgame.domain.model.Barbarian;
 import org.amaap.troopsimulationgame.domain.model.Trooper;
+import org.amaap.troopsimulationgame.repository.impl.db.InMemoryDatabase;
+import org.amaap.troopsimulationgame.repository.impl.db.impl.FakeDatabase;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopDataException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,10 +15,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class InMemoryTroopRepositoryTest {
     private InMemoryTroopRepository repository;
+    private InMemoryDatabase inMemoryDatabase;
 
     @BeforeEach
     void setUp() {
-        repository = new InMemoryTroopRepository();
+        inMemoryDatabase = new FakeDatabase();
+        repository = new InMemoryTroopRepository(inMemoryDatabase);
     }
 
 

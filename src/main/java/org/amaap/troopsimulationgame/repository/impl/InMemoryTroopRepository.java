@@ -10,16 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InMemoryTroopRepository implements TroopRepository {
-
+    private InMemoryDatabase inMemoryDatabase;
     List<Trooper> troopers = new ArrayList<>();
+
+    @Inject
+    public InMemoryTroopRepository(InMemoryDatabase inMemoryDatabase) {
+        this.inMemoryDatabase = inMemoryDatabase;
+    }
+
 
     @Override
     public void insert(Trooper trooper) throws InvalidTroopTypeException {
-       troopers.add(trooper);
+        inMemoryDatabase.insertIntoTroopTable(trooper);
     }
 
     @Override
     public List<Trooper> getTroopers() {
-        return troopers;
+        return inMemoryDatabase.getTroopers();
     }
 }

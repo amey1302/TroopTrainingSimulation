@@ -2,6 +2,8 @@ package org.amaap.troopsimulationgame.service;
 
 import org.amaap.troopsimulationgame.repository.TroopRepository;
 import org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepository;
+import org.amaap.troopsimulationgame.repository.impl.db.InMemoryDatabase;
+import org.amaap.troopsimulationgame.repository.impl.db.impl.FakeDatabase;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTrainingTimeAndCostException;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTypeException;
 import org.amaap.troopsimulationgame.service.exception.InvalidWeaponException;
@@ -14,10 +16,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class TroopServiceTest {
     private TroopService troopService;
     private TroopRepository repository;
+    private InMemoryDatabase inMemoryDatabase;
 
     @BeforeEach
     void setUp() {
-        repository = new InMemoryTroopRepository();
+        inMemoryDatabase = new FakeDatabase();
+        repository = new InMemoryTroopRepository(inMemoryDatabase);
         troopService = new TroopService(repository);
     }
 
