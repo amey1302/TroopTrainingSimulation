@@ -26,7 +26,7 @@ class TroopServiceTest {
     }
 
     @Test
-    void shouldBeAbleToThrowInvalidTroopTrainingTimeAndCostExceptionWhenTrainingCostIsZero() {
+    void shouldThrowInvalidTroopTrainingTimeAndCostExceptionWhenTrainingCostIsZero() {
         // arrange
         int trainingCost = 0;
         int trainingTime = 10;
@@ -38,7 +38,7 @@ class TroopServiceTest {
     }
 
     @Test
-    void shouldBeAbleToThrowInvalidTroopTrainingTimeAndCostExceptionWhenTrainingCostIsNegative() {
+    void shouldThrowInvalidTroopTrainingTimeAndCostExceptionWhenTrainingCostIsNegative() {
         // arrange
         int trainingCost = -1;
         int trainingTime = 10;
@@ -50,7 +50,7 @@ class TroopServiceTest {
     }
 
     @Test
-    void shouldBeAbleToThrowInvalidTroopTrainingTimeAndCostExceptionWhenTrainingTimeIsZero() {
+    void shouldThrowInvalidTroopTrainingTimeAndCostExceptionWhenTrainingTimeIsZero() {
         // arrange
         int trainingCost = 100;
         int trainingTime = 0;
@@ -62,7 +62,7 @@ class TroopServiceTest {
     }
 
     @Test
-    void shouldBeAbleToThrowInvalidTroopTrainingTimeAndCostExceptionWhenTrainingTimeIsNegative() {
+    void shouldThrowInvalidTroopTrainingTimeAndCostExceptionWhenTrainingTimeIsNegative() {
         // arrange
         int trainingCost = 100;
         int trainingTime = -10;
@@ -74,7 +74,7 @@ class TroopServiceTest {
     }
 
     @Test
-    void shouldBeAbleToThrowInvalidTroopTypeExceptionWhenTypeIsNull() {
+    void shouldThrowInvalidTroopTypeExceptionWhenTypeIsNull() {
         // arrange
         int trainingCost = 100;
         int trainingTime = 10;
@@ -86,7 +86,7 @@ class TroopServiceTest {
     }
 
     @Test
-    void shouldBeAbleToThrowInvalidTroopTypeExceptionWhenTypeIsNotValid() {
+    void shouldThrowInvalidTroopTypeExceptionWhenTypeIsNotValid() {
         // arrange
         int trainingCost = 100;
         int trainingTime = 10;
@@ -98,7 +98,7 @@ class TroopServiceTest {
     }
 
     @Test
-    void shouldBeAbleToThrowInvalidWeaponExceptionWhenWeaponIsNull() {
+    void shouldThrowInvalidWeaponExceptionWhenWeaponIsNull() {
         // arrange
         int trainingCost = 100;
         int trainingTime = 10;
