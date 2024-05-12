@@ -40,6 +40,7 @@ public class FakeDatabase implements InMemoryDatabase {
         trainedTroopers.addAll(trainedTroops);
     }
 
+
     @Override
     public List<Trooper> getTrainedTroops() {
         return trainedTroopers;
@@ -74,5 +75,7 @@ public class FakeDatabase implements InMemoryDatabase {
     public void setTrainedBarbarianCount(int count) {
         this.barbarianCount = count;
     }
+
+
 
 }
