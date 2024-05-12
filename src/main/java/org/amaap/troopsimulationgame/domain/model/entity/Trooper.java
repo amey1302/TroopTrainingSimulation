@@ -26,6 +26,10 @@ public class Trooper {
         return trainingTime;
     }
 
+    public int getTrainingCost() {
+        return trainingCost;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -39,12 +43,5 @@ public class Trooper {
         return Objects.hash(trainingTime, trainingCost, weapon);
     }
 
-    @Override
-    public String toString() {
-        return "Archer{" +
-                "trainingTime=" + trainingTime +
-                ", trainingCost=" + trainingCost +
-                ", weapon='" + weapon + '\'' +
-                '}';
-    }
+
 }
