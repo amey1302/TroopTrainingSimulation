@@ -8,7 +8,6 @@ import org.amaap.troopsimulationgame.domain.model.entity.Barbarian;
 import org.amaap.troopsimulationgame.domain.model.entity.Trooper;
 import org.amaap.troopsimulationgame.repository.ArmyCampRepository;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopDataException;
-import org.amaap.troopsimulationgame.service.exception.NoTrainedTroopsAvailableException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
