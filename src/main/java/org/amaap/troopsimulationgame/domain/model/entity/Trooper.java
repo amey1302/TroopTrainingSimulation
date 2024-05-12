@@ -1,9 +1,8 @@
-package org.amaap.troopsimulationgame.domain.model;
+package org.amaap.troopsimulationgame.domain.model.entity;
 
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTrainingTimeAndCostException;
 import org.amaap.troopsimulationgame.service.exception.InvalidWeaponException;
 
-import java.util.EnumSet;
 import java.util.Objects;
 
 import static org.amaap.troopsimulationgame.service.validator.TroopValidator.isInvalid;
