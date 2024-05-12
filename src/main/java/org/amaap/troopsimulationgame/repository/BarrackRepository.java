@@ -1,20 +1,26 @@
 package org.amaap.troopsimulationgame.repository;
 
+import org.amaap.troopsimulationgame.domain.model.entity.Trooper;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTypeException;
 
 import java.util.List;
 
 public interface BarrackRepository {
-    public void insert(String troopType) throws InvalidTroopTypeException;\
-    List<Object> getTroopers();
-    void trainedTroops(List<Object> troops);
-    List<Object> getTrainedTroops();
+    public void insert(Trooper trooper) throws InvalidTroopTypeException;
 
-    int getTrainedArcherCount();
+    List<Trooper> getTroopers();
+    void save(List<Trooper> troops);
 
-    void setTrainedArcherCount(int count);
+    List<Trooper> getTrainedTroops();
 
-    int getTrainedBarbarianCount();
 
-    void setTrainedBarbarianCount(int count);
+//    int getTrainedArcherCount();
+//
+//    void setTrainedArcherCount(int count);
+//
+//    int getTrainedBarbarianCount();
+//
+//    void setTrainedBarbarianCount(int count);
+
+
 }
