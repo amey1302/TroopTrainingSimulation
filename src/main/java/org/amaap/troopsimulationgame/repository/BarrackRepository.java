@@ -9,18 +9,10 @@ public interface BarrackRepository {
     public void insert(Trooper trooper) throws InvalidTroopTypeException;
 
     List<Trooper> getTroopers();
+
     void save(List<Trooper> troops);
 
     List<Trooper> getTrainedTroops();
-
-
-//    int getTrainedArcherCount();
-//
-//    void setTrainedArcherCount(int count);
-//
-//    int getTrainedBarbarianCount();
-//
-//    void setTrainedBarbarianCount(int count);
 
 
 }

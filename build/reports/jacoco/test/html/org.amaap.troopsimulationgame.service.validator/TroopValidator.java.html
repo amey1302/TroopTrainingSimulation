@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TroopValidator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TroopSimulation</a> &gt; <a href="index.source.html" class="el_package">org.amaap.troopsimulationgame.service.validator</a> &gt; <span class="el_source">TroopValidator.java</span></div><h1>TroopValidator.java</h1><pre class="source lang-java linenums">package org.amaap.troopsimulationgame.service.validator;
+
+import org.amaap.troopsimulationgame.domain.model.entity.Archer;
+import org.amaap.troopsimulationgame.domain.model.entity.Barbarian;
+import org.amaap.troopsimulationgame.domain.model.entity.Trooper;
+import org.amaap.troopsimulationgame.domain.model.valueobjects.TroopType;
+import org.amaap.troopsimulationgame.service.exception.InvalidTroopTypeException;
+
+<span class="nc" id="L9">public class TroopValidator {</span>
+    public static boolean isInvalidType(String troopType) {
+<span class="pc bpc" id="L11" title="1 of 4 branches missed.">        if (troopType == null || troopType.isEmpty()) {</span>
+<span class="fc" id="L12">            return true;</span>
+        }
+<span class="pc bpc" id="L14" title="1 of 2 branches missed.">        if (troopType.matches(&quot;.*\\s+.*&quot;)) {</span>
+<span class="nc" id="L15">            return true;</span>
+        }
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        if (!isValidTroopType(troopType)) {</span>
+<span class="fc" id="L18">            return true;</span>
+        }
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">        if (troopType.matches(&quot;.*\\d+.*&quot;)) {</span>
+<span class="nc" id="L21">            return true;</span>
+        }
+<span class="fc" id="L23">        return false;</span>
+    }
+
+    public static boolean isInvalid(String weapon) {
+<span class="pc bpc" id="L27" title="1 of 4 branches missed.">        if (weapon == null || weapon.isEmpty()) {</span>
+<span class="fc" id="L28">            return true;</span>
+        }
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (weapon.matches(&quot;.*\\d+.*&quot;)) {</span>
+<span class="fc" id="L31">            return true;</span>
+        }
+<span class="fc" id="L33">        return false;</span>
+    }
+
+    private static boolean isValidTroopType(String troopType) {
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        for (TroopType troop : TroopType.values()) {</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">            if (troop.getTypeName().equalsIgnoreCase(troopType)) {</span>
+<span class="fc" id="L39">                return true;</span>
+            }
+        }
+<span class="fc" id="L42">        return false;</span>
+    }
+    public static Class&lt;? extends Trooper&gt; getTroopClass(String troopType) throws InvalidTroopTypeException {
+<span class="nc bnc" id="L45" title="All 3 branches missed.">        switch (troopType.toLowerCase()) {</span>
+            case &quot;archer&quot;:
+<span class="nc" id="L47">                return Archer.class;</span>
+            case &quot;barbarian&quot;:
+<span class="nc" id="L49">                return Barbarian.class;</span>
+            default:
+<span class="nc" id="L51">                throw new InvalidTroopTypeException(&quot;Invalid troop type: &quot; + troopType);</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

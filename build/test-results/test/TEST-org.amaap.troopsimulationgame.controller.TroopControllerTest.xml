@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.amaap.troopsimulationgame.controller.TroopControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-05-08T19:01:51" hostname="LAPTOP-205J7BQ6" time="0.053">
+<testsuite name="org.amaap.troopsimulationgame.controller.TroopControllerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2024-05-12T17:10:14" hostname="LAPTOP-205J7BQ6" time="0.049">
   <properties/>
-  <testcase name="shouldBeAbleToReturnOkIfTroopAreCreated()" classname="org.amaap.troopsimulationgame.controller.TroopControllerTest" time="0.042"/>
-  <testcase name="shouldBeAbleToReturnBAD_REQUESTIfTroopCountIsInvalid()" classname="org.amaap.troopsimulationgame.controller.TroopControllerTest" time="0.006"/>
-  <testcase name="shouldBeAbleToReturnBAD_REQUESTIfTroopTypeIsInvalid()" classname="org.amaap.troopsimulationgame.controller.TroopControllerTest" time="0.002"/>
+  <testcase name="shouldBeAbleToReturnOkIfTBarbarianIsCreated()" classname="org.amaap.troopsimulationgame.controller.TroopControllerTest" time="0.009"/>
+  <testcase name="shouldBeAbleToReturnBAD_REQUESTIfTroopTypeIsInvalid()" classname="org.amaap.troopsimulationgame.controller.TroopControllerTest" time="0.007"/>
+  <testcase name="shouldBeAbleToReturnOkIfArcherIsCreated()" classname="org.amaap.troopsimulationgame.controller.TroopControllerTest" time="0.006"/>
+  <testcase name="shouldBeAbleToReturnBAD_REQUESTIfWeaponIsInvalid()" classname="org.amaap.troopsimulationgame.controller.TroopControllerTest" time="0.006"/>
+  <testcase name="shouldBeAbleToReturnBAD_REQUESTIfTrainingTimeIsInvalid()" classname="org.amaap.troopsimulationgame.controller.TroopControllerTest" time="0.01"/>
+  <testcase name="shouldBeAbleToReturnBAD_REQUESTIfTrainingCostIsInvalid()" classname="org.amaap.troopsimulationgame.controller.TroopControllerTest" time="0.006"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

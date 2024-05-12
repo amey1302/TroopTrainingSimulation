@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BarrackService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TroopSimulation</a> &gt; <a href="index.source.html" class="el_package">org.amaap.troopsimulationgame.service</a> &gt; <span class="el_source">BarrackService.java</span></div><h1>BarrackService.java</h1><pre class="source lang-java linenums">package org.amaap.troopsimulationgame.service;
+
+import com.google.inject.Inject;
+import org.amaap.troopsimulationgame.domain.model.entity.Archer;
+import org.amaap.troopsimulationgame.domain.model.entity.Barbarian;
+import org.amaap.troopsimulationgame.domain.model.entity.Trooper;
+import org.amaap.troopsimulationgame.domain.model.service.Training;
+import org.amaap.troopsimulationgame.repository.BarrackRepository;
+import org.amaap.troopsimulationgame.service.exception.*;
+
+import java.util.List;
+
+import static org.amaap.troopsimulationgame.service.validator.TroopValidator.isInvalidType;
+
+public class BarrackService {
+    private BarrackRepository barrackRepository;
+    private Training training;
+
+    @Inject
+<span class="fc" id="L20">    public BarrackService(BarrackRepository barrackRepository, Training training) {</span>
+<span class="fc" id="L21">        this.barrackRepository = barrackRepository;</span>
+<span class="fc" id="L22">        this.training = training;</span>
+<span class="fc" id="L23">    }</span>
+
+    public void create(int troopCount, String troopType) throws InvalidTroopDataException, InvalidWeaponException {
+<span class="pc bpc" id="L26" title="1 of 2 branches missed.">        if (troopCount &lt;= 0) throw new InvalidTroopCountException(&quot;&quot; + troopCount);</span>
+<span class="pc bpc" id="L27" title="1 of 2 branches missed.">        if (troopCount &gt; 10) throw new BarrackCapacityFullException(&quot;&quot; + troopCount);</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (isInvalidType(troopType)) throw new InvalidTroopTypeException(&quot;&quot; + troopType);</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        for (int i = 0; i &lt; troopCount; i++) {</span>
+<span class="pc bpc" id="L30" title="3 of 4 branches missed.">            if (&quot;Barbarian&quot;.equals(troopType) || &quot;barbarian&quot;.equals(troopType)) {</span>
+<span class="fc" id="L31">                barrackRepository.insert(new Barbarian(3, 10, &quot;sword&quot;));</span>
+<span class="nc bnc" id="L32" title="All 4 branches missed.">            } else if (&quot;Archer&quot;.equals(troopType) || &quot;archer&quot;.equals(troopType)) {</span>
+<span class="nc" id="L33">                barrackRepository.insert(new Archer(6, 20, &quot;bow and arrow&quot;));</span>
+            }
+        }
+<span class="fc" id="L36">    }</span>
+
+    public void train() throws InvalidTroopTypeException {
+<span class="fc" id="L39">        List&lt;Trooper&gt; trainedTroops = training.trainTroopers();</span>
+<span class="fc" id="L40">        barrackRepository.save(trainedTroops);</span>
+<span class="fc" id="L41">    }</span>
+
+    public List&lt;Trooper&gt; getTroppers() {
+<span class="fc" id="L44">        return barrackRepository.getTroopers();</span>
+    }
+
+    public List&lt;Trooper&gt; getTrainedTroppers() {
+<span class="fc" id="L48">        return barrackRepository.getTrainedTroops();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

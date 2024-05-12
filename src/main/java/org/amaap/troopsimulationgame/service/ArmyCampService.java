@@ -7,6 +7,7 @@ import org.amaap.troopsimulationgame.domain.model.entity.Trooper;
 import org.amaap.troopsimulationgame.repository.ArmyCampRepository;
 import org.amaap.troopsimulationgame.repository.BarrackRepository;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTypeException;
+import org.amaap.troopsimulationgame.service.exception.NoTrainedTroopsAvailableException;
 
 import java.util.List;
 

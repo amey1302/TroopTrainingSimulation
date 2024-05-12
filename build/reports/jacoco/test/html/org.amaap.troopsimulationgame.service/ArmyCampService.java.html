@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ArmyCampService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TroopSimulation</a> &gt; <a href="index.source.html" class="el_package">org.amaap.troopsimulationgame.service</a> &gt; <span class="el_source">ArmyCampService.java</span></div><h1>ArmyCampService.java</h1><pre class="source lang-java linenums">package org.amaap.troopsimulationgame.service;
+
+import com.google.inject.Inject;
+import org.amaap.troopsimulationgame.domain.model.entity.Archer;
+import org.amaap.troopsimulationgame.domain.model.entity.Barbarian;
+import org.amaap.troopsimulationgame.domain.model.entity.Trooper;
+import org.amaap.troopsimulationgame.repository.ArmyCampRepository;
+import org.amaap.troopsimulationgame.repository.BarrackRepository;
+import org.amaap.troopsimulationgame.service.exception.InvalidTroopTypeException;
+import org.amaap.troopsimulationgame.service.exception.NoTrainedTroopsAvailableException;
+
+import java.util.List;
+
+import static org.amaap.troopsimulationgame.service.validator.TroopValidator.isInvalidType;
+
+public class ArmyCampService {
+    private BarrackRepository barrackRepository;
+    private ArmyCampRepository armyCampRepository;
+
+    @Inject
+<span class="fc" id="L21">    public ArmyCampService(BarrackRepository barrackRepository, ArmyCampRepository armyCampRepository) {</span>
+<span class="fc" id="L22">        this.barrackRepository = barrackRepository;</span>
+<span class="fc" id="L23">        this.armyCampRepository = armyCampRepository;</span>
+<span class="fc" id="L24">    }</span>
+
+    public void addTrainedTrooperFromBarrackToArmyCamp(List&lt;Trooper&gt; trainedTroops)
+            throws NoTrainedTroopsAvailableException {
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (trainedTroops.isEmpty())</span>
+<span class="fc" id="L29">            throw new NoTrainedTroopsAvailableException(&quot;Troops are not available&quot; + trainedTroops);</span>
+<span class="fc" id="L30">        armyCampRepository.save(trainedTroops);</span>
+<span class="fc" id="L31">    }</span>
+
+    public List&lt;Trooper&gt; getTrainedTroops() {
+<span class="fc" id="L34">        return armyCampRepository.getTrainedTroops();</span>
+    }
+
+    public void calculateTroopCount(String troopType) {
+<span class="fc" id="L38">        int archerCount = 0;</span>
+<span class="fc" id="L39">        int barbarianCount = 0;</span>
+<span class="fc" id="L40">        List&lt;Trooper&gt; trainedTroops = armyCampRepository.getTrainedTroops();</span>
+<span class="fc" id="L41">        archerCount = (int) trainedTroops.stream()</span>
+<span class="fc" id="L42">                .filter(trooper -&gt; trooper instanceof Archer)</span>
+<span class="fc" id="L43">                .count();</span>
+
+<span class="fc" id="L45">        barbarianCount = (int) trainedTroops.stream()</span>
+<span class="fc" id="L46">                .filter(trooper -&gt; trooper instanceof Barbarian)</span>
+<span class="fc" id="L47">                .count();</span>
+<span class="fc" id="L48">        armyCampRepository.setTrainedArcherCount(archerCount);</span>
+<span class="fc" id="L49">        armyCampRepository.setTrainedBarbarianCount(barbarianCount);</span>
+<span class="fc" id="L50">    }</span>
+
+    public int getTroopersCountFor(String troopType) throws InvalidTroopTypeException {
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        if (isInvalidType(troopType)) throw new InvalidTroopTypeException(&quot;&quot; + troopType);</span>
+<span class="pc bpc" id="L54" title="1 of 4 branches missed.">        else if (troopType.equals(&quot;Archer&quot;) || troopType.equals(&quot;archer&quot;)) {</span>
+<span class="fc" id="L55">            return armyCampRepository.getTrainedArcherCount();</span>
+        } else
+<span class="fc" id="L57">            return armyCampRepository.getTrainedBarbarianCount();</span>
+
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

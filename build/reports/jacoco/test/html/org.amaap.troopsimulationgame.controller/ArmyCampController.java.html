@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ArmyCampController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TroopSimulation</a> &gt; <a href="index.source.html" class="el_package">org.amaap.troopsimulationgame.controller</a> &gt; <span class="el_source">ArmyCampController.java</span></div><h1>ArmyCampController.java</h1><pre class="source lang-java linenums">package org.amaap.troopsimulationgame.controller;
+
+import com.google.inject.Inject;
+import org.amaap.troopsimulationgame.controller.dto.HttpStatus;
+import org.amaap.troopsimulationgame.controller.dto.Response;
+import org.amaap.troopsimulationgame.domain.model.entity.Trooper;
+import org.amaap.troopsimulationgame.service.ArmyCampService;
+
+import java.util.List;
+
+public class ArmyCampController {
+    private ArmyCampService armyCampService;
+
+    @Inject
+<span class="fc" id="L15">    public ArmyCampController(ArmyCampService armyCampService) {</span>
+<span class="fc" id="L16">        this.armyCampService = armyCampService;</span>
+<span class="fc" id="L17">    }</span>
+
+    public Response addTrainedTrooperIntoArmyCamp(List&lt;Trooper&gt; trainedTroops) {
+        try {
+<span class="fc" id="L21">            armyCampService.addTrainedTrooperFromBarrackToArmyCamp(trainedTroops);</span>
+<span class="fc" id="L22">            return new Response(HttpStatus.OK, &quot;Troops are available in ArmyCamp&quot;);</span>
+<span class="fc" id="L23">        } catch (Exception exception) {</span>
+<span class="fc" id="L24">            return new Response(HttpStatus.BAD_REQUEST, &quot;Troops are not available&quot;);</span>
+        }
+    }
+
+    public Response getTroopersCountFor(String troopType) {
+        try {
+<span class="fc" id="L30">            armyCampService.getTroopersCountFor(troopType);</span>
+<span class="fc" id="L31">            return new Response(HttpStatus.OK, &quot;Troops Available in ArmyCamp&quot;);</span>
+<span class="fc" id="L32">        } catch (Exception exception) {</span>
+<span class="fc" id="L33">            return new Response(HttpStatus.BAD_REQUEST, &quot;No Troops in ArmyCamp For this TroopType&quot;);</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

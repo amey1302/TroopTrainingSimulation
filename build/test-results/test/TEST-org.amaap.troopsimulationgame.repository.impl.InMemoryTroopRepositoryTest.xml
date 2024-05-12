@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepositoryTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-05-08T19:01:52" hostname="LAPTOP-205J7BQ6" time="0.013">
+<testsuite name="org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepositoryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-05-12T17:10:14" hostname="LAPTOP-205J7BQ6" time="0.015">
   <properties/>
-  <testcase name="shouldBeAbleToInsertArchersIntoDatabase()" classname="org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepositoryTest" time="0.002"/>
-  <testcase name="shouldThrowExceptionForInvalidTroopType()" classname="org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepositoryTest" time="0.004"/>
-  <testcase name="shouldBeAbleToInsertBarbariansIntoDatabase()" classname="org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepositoryTest" time="0.002"/>
-  <testcase name="shouldBeAbleToGetTroopers()" classname="org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepositoryTest" time="0.001"/>
+  <testcase name="shouldBeAbleToInsertBarbarianIntoRepository()" classname="org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepositoryTest" time="0.006"/>
+  <testcase name="shouldBeAbleToInsertArcherIntoRepository()" classname="org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepositoryTest" time="0.004"/>
+  <testcase name="shouldBeAbleToGetTroopers()" classname="org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepositoryTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

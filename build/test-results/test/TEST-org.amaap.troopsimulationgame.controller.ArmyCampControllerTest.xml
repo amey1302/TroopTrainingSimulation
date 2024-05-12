@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.amaap.troopsimulationgame.controller.ArmyCampControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-05-12T17:10:14" hostname="LAPTOP-205J7BQ6" time="0.393">
+  <properties/>
+  <testcase name="shouldBeAbleReturnBadRequestResponseIfTroopsAreNotAvailableInArmyCamp()" classname="org.amaap.troopsimulationgame.controller.ArmyCampControllerTest" time="0.365"/>
+  <testcase name="shouldBeAbleReturnOkResponseIfTroopsAreAvailableInArmyCamp()" classname="org.amaap.troopsimulationgame.controller.ArmyCampControllerTest" time="0.01"/>
+  <testcase name="shouldBeAbleReturnOKResponseIfTroopsWithTypeIsSameAsExpected()" classname="org.amaap.troopsimulationgame.controller.ArmyCampControllerTest" time="0.007"/>
+  <testcase name="shouldBeAbleReturnBadRequestResponseIfNoTroopsInArmyCampForTroopType()" classname="org.amaap.troopsimulationgame.controller.ArmyCampControllerTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

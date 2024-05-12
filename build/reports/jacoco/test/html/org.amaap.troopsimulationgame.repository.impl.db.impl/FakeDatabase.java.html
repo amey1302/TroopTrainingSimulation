@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FakeDatabase.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TroopSimulation</a> &gt; <a href="index.source.html" class="el_package">org.amaap.troopsimulationgame.repository.impl.db.impl</a> &gt; <span class="el_source">FakeDatabase.java</span></div><h1>FakeDatabase.java</h1><pre class="source lang-java linenums">package org.amaap.troopsimulationgame.repository.impl.db.impl;
+
+import org.amaap.troopsimulationgame.domain.model.entity.Trooper;
+import org.amaap.troopsimulationgame.repository.impl.db.InMemoryDatabase;
+import org.amaap.troopsimulationgame.service.exception.InvalidTroopTypeException;
+
+import java.util.ArrayList;
+import java.util.List;
+
+<span class="fc" id="L10">public class FakeDatabase implements InMemoryDatabase {</span>
+<span class="fc" id="L11">    private List&lt;Trooper&gt; troops = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L12">    private List&lt;Trooper&gt; troopers = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L13">    private List&lt;Trooper&gt; trainedTroopers = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L14">    private int archerCount = 0;</span>
+<span class="fc" id="L15">    private int barbarianCount = 0;</span>
+
+
+    @Override
+    public void insertIntoTroopTable(Trooper trooper) throws InvalidTroopTypeException {
+<span class="fc" id="L20">        troops.add(trooper);</span>
+<span class="fc" id="L21">    }</span>
+
+    @Override
+    public List&lt;Trooper&gt; getTroops() {
+<span class="fc" id="L25">        return troops;</span>
+    }
+
+    @Override
+    public void insertIntoBarrackTable(Trooper trooper) {
+<span class="fc" id="L30">        troopers.add(trooper);</span>
+<span class="fc" id="L31">    }</span>
+
+    @Override
+    public List&lt;Trooper&gt; getTroopers() {
+<span class="fc" id="L35">        return troopers;</span>
+    }
+
+    @Override
+    public void save(List&lt;Trooper&gt; trainedTroops) {
+<span class="fc" id="L40">        trainedTroopers.addAll(trainedTroops);</span>
+<span class="fc" id="L41">    }</span>
+
+    @Override
+    public List&lt;Trooper&gt; getTrainedTroops() {
+<span class="fc" id="L45">        return trainedTroopers;</span>
+    }
+
+    @Override
+    public void insertIntoArmyCampTable(List&lt;Trooper&gt; trooperList) {
+<span class="fc" id="L50">        trainedTroopers.addAll(trooperList);</span>
+<span class="fc" id="L51">    }</span>
+
+    @Override
+    public List&lt;Trooper&gt; getTrainedTroopsFromArmyCamp() {
+<span class="fc" id="L55">        return trainedTroopers;</span>
+    }
+
+    @Override
+    public int getTrainedArcherCount() {
+<span class="fc" id="L60">        return archerCount;</span>
+    }
+
+    @Override
+    public void setTrainedArcherCount(int count) {
+<span class="fc" id="L65">        this.archerCount = count;</span>
+<span class="fc" id="L66">    }</span>
+
+    @Override
+    public int getTrainedBarbarianCount() {
+<span class="fc" id="L70">        return barbarianCount;</span>
+    }
+
+    @Override
+    public void setTrainedBarbarianCount(int count) {
+<span class="fc" id="L75">        this.barbarianCount = count;</span>
+<span class="fc" id="L76">    }</span>
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
