@@ -1,7 +1,7 @@
 package org.amaap.troopsimulationgame.service;
 
 import com.google.inject.Inject;
-import org.amaap.troopsimulationgame.domain.model.Trooper;
+import org.amaap.troopsimulationgame.domain.model.entity.Trooper;
 import org.amaap.troopsimulationgame.domain.model.valueobjects.TroopType;
 import org.amaap.troopsimulationgame.repository.TroopRepository;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTrainingTimeAndCostException;
@@ -25,7 +25,7 @@ public class TroopService {
         if (trainingCost <= 0) throw new InvalidTroopTrainingTimeAndCostException("" + trainingCost);
         if (trainingTime <= 0) throw new InvalidTroopTrainingTimeAndCostException("" + trainingTime);
         if (isInvalidType(troopType)) throw new InvalidTroopTypeException("" + troopType);
-        if(isInvalid(weapon)) throw new InvalidWeaponException(""+weapon);
+        if (isInvalid(weapon)) throw new InvalidWeaponException("" + weapon);
         Trooper trooper = null;
         if (EnumSet.allOf(TroopType.class).contains(troopType)) {
             if (troopType.equals(TroopType.Archer)) {

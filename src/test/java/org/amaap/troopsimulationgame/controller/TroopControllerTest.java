@@ -1,12 +1,10 @@
 package org.amaap.troopsimulationgame.controller;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import org.amaap.troopsimulationgame.TroopModule;
 import org.amaap.troopsimulationgame.controller.dto.HttpStatus;
 import org.amaap.troopsimulationgame.controller.dto.Response;
-import org.amaap.troopsimulationgame.repository.TroopRepository;
-import org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepository;
-import org.amaap.troopsimulationgame.repository.impl.db.InMemoryDatabase;
-import org.amaap.troopsimulationgame.repository.impl.db.impl.FakeDatabase;
-import org.amaap.troopsimulationgame.service.TroopService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,16 +12,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TroopControllerTest {
     private TroopController troopController;
-    private TroopService troopService;
-    private TroopRepository repository;
-    private InMemoryDatabase inMemoryDatabase;
 
     @BeforeEach
     void setUp() {
-        inMemoryDatabase = new FakeDatabase();
-        repository = new InMemoryTroopRepository(inMemoryDatabase);
-        troopService = new TroopService(repository);
-        troopController = new TroopController(troopService);
+        Injector injector = Guice.createInjector(new TroopModule());
+        troopController = injector.getInstance(TroopController.class);
     }
 
 

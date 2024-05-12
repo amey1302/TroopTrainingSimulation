@@ -1,10 +1,11 @@
 package org.amaap.troopsimulationgame.repository.impl;
 
-import org.amaap.troopsimulationgame.domain.model.Archer;
-import org.amaap.troopsimulationgame.domain.model.Barbarian;
-import org.amaap.troopsimulationgame.domain.model.Trooper;
-import org.amaap.troopsimulationgame.repository.impl.db.InMemoryDatabase;
-import org.amaap.troopsimulationgame.repository.impl.db.impl.FakeDatabase;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import org.amaap.troopsimulationgame.TroopModule;
+import org.amaap.troopsimulationgame.domain.model.entity.Archer;
+import org.amaap.troopsimulationgame.domain.model.entity.Barbarian;
+import org.amaap.troopsimulationgame.domain.model.entity.Trooper;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopDataException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,13 +15,12 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class InMemoryTroopRepositoryTest {
-    private InMemoryTroopRepository repository;
-    private InMemoryDatabase inMemoryDatabase;
+    private InMemoryTroopRepository inMemoryTroopRepository;
 
     @BeforeEach
     void setUp() {
-        inMemoryDatabase = new FakeDatabase();
-        repository = new InMemoryTroopRepository(inMemoryDatabase);
+        Injector injector = Guice.createInjector(new TroopModule());
+        inMemoryTroopRepository = injector.getInstance(InMemoryTroopRepository.class);
     }
 
 
@@ -30,12 +30,12 @@ class InMemoryTroopRepositoryTest {
         Trooper trooper = new Archer(6, 20, "bow and arrow");
 
         // act
-        repository.insert(trooper);
+        inMemoryTroopRepository.insert(trooper);
 
         // assert
-        List<Trooper> troopers = repository.getTroopers();
-        assertEquals(1, troopers.size());
-        assertEquals(trooper, troopers.get(0));
+        List<Trooper> troops = inMemoryTroopRepository.getTroopers();
+        assertEquals(1, troops.size());
+        assertEquals(trooper, troops.get(0));
     }
 
     @Test
@@ -44,12 +44,12 @@ class InMemoryTroopRepositoryTest {
         Trooper trooper = new Barbarian(3, 10, "sword");
 
         // act
-        repository.insert(trooper);
+        inMemoryTroopRepository.insert(trooper);
 
         // assert
-        List<Trooper> troopers = repository.getTroopers();
-        assertEquals(1, troopers.size());
-        assertEquals(trooper, troopers.get(0));
+        List<Trooper> troops = inMemoryTroopRepository.getTroopers();
+        assertEquals(1, troops.size());
+        assertEquals(trooper, troops.get(0));
     }
 
     @Test
@@ -57,15 +57,15 @@ class InMemoryTroopRepositoryTest {
         // arrange
         Trooper archer = new Archer(6, 20, "bow and arrow");
         Trooper barbarian = new Barbarian(3, 10, "sword");
-        repository.insert(archer);
-        repository.insert(barbarian);
+        inMemoryTroopRepository.insert(archer);
+        inMemoryTroopRepository.insert(barbarian);
 
         // act
-        List<Trooper> troopers = repository.getTroopers();
+        List<Trooper> troops = inMemoryTroopRepository.getTroopers();
 
         // assert
-        assertEquals(2, troopers.size());
-        assertEquals(archer, troopers.get(0));
-        assertEquals(barbarian, troopers.get(1));
+        assertEquals(2, troops.size());
+        assertEquals(archer, troops.get(0));
+        assertEquals(barbarian, troops.get(1));
     }
 }

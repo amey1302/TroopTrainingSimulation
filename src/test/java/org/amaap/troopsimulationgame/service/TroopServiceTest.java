@@ -1,5 +1,8 @@
 package org.amaap.troopsimulationgame.service;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import org.amaap.troopsimulationgame.TroopModule;
 import org.amaap.troopsimulationgame.repository.TroopRepository;
 import org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepository;
 import org.amaap.troopsimulationgame.repository.impl.db.InMemoryDatabase;
@@ -15,14 +18,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class TroopServiceTest {
     private TroopService troopService;
-    private TroopRepository repository;
-    private InMemoryDatabase inMemoryDatabase;
-
     @BeforeEach
     void setUp() {
-        inMemoryDatabase = new FakeDatabase();
-        repository = new InMemoryTroopRepository(inMemoryDatabase);
-        troopService = new TroopService(repository);
+        Injector injector = Guice.createInjector(new TroopModule());
+        troopService = injector.getInstance(TroopService.class);
     }
 
     @Test
