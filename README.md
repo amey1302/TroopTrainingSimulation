@@ -24,60 +24,114 @@ Scenario 1
 Simulate the training and train barbarians and/or archers. As a gamer:
 
 You should be able to input the number of barbarians and/or archers you would like to train.
-You should be able to see how many troops are trained and available in the troop camp after training completes.
------------------------
-## Analysis
-### package : org.amaap.troopsimulationgame
- ## Domain
-   - model
-     - Archer
-      - state :
-         - int id
-         - int trainingTime
-         - int trainingCost
-      - behaviour :
-         - getters
-     - Barbarian
-      - state :
-         - int id
-         - int trainingTime
-         - int trainingCost
-      - behaviour :
-         - getters
-     - value Objects(enum)
-       - Troop
-         - TroopType
-   - service
-     - TrainTroops
+You should be able to see how many troops are trained and available in the troop camp after training completes.# Troop Simulation Game
 
- ## Controller :
-   ### TroopController
-        - The role of this controller is to create the troops via TroopService
-          and store that in TroopRepository
-   ### BarrackController
-        - The role of this controller is to use the troops that are stored in the
-          TroopRepository via BarrackService
-        - It will call internally to the TrainTroop Service of domain to train the troops
-        - After Training the troops are stored in the ArmyCampRepository
-   ### ArmyCampController
-        - It will get the data from the ArmyCampRepository via ArmyCampService and
-          displays the troopCount(Archer and Barbarian)
+## Overview
 
- ## Service  :
-    ### TroopService :
-        - It validates the troopCount and TroopType String Validation and after that
-          it will create the troop and store in the TroopRepository
-    ### BarrackService :
-        - It takes troop from the TroopRepository and call the domain service TrainTroops
-        - After training the troops are stored in ArmyCampRepository
-    ### ArmyCampService :
-       - It reads the data from the ArmyCampRepository and displays the count of the Troops
+This project implements a Troop Simulation Game using the MVC (Model-View-Controller) architecture. The game allows users to create, train, and manage troops within an army camp. It separates concerns into controllers, services, repositories, and domain models following the MVC pattern to enhance maintainability and scalability.
 
- ## Repository :
-    ### TroopRepository :
-       - Stores the troops
-    ### BarrackRepository :
-       - Stores the data of troops which are trained
-    ### ArmyCampRepository :
-       - stores the troopCount
+## Architecture
+
+### Controller
+
+#### TroopController
+- return response for creation of troop(like Archer , Barbarian..etc)
+- Uses `TroopService` for troop validation and creation.
+- Provides methods for creating troops of various types.
+
+#### BarrackController
+- Manages troop creation and training within the barrack and return response
+- Relies on `BarrackService` for troop operations.
+- Provides functionality for bulk troop creation and training.
+
+#### ArmyCampController
+- Manages troops in the army camp and return response.
+- Utilizes `ArmyCampService` for troop management.
+- Offers methods to add trained troops to the camp and retrieve troop counts.
+
+### Service
+
+#### TroopService
+- Validates troop data and creates troops.
+- Utilizes `TroopRepository` for troop persistence.
+- Implements business logic for troop creation.
+
+#### BarrackService
+- Manages troop operations in the barrack.
+- Relies on `BarrackRepository` for troop persistence.
+- Implements troop creation and training logic.
+
+#### ArmyCampService
+- Handles troop operations in the army camp.
+- Uses `ArmyCampRepository` for troop persistence.
+- Implements methods for troop management in the camp.
+
+### Repository
+
+#### TroopRepository
+- Interface for storing individual troops.
+- Defines methods for inserting and retrieving troops.
+
+#### BarrackRepository
+- Interface for managing troops in the barrack.
+- Provides methods for troop insertion, retrieval, and training.
+
+#### ArmyCampRepository
+- Interface for managing troops in the army camp.
+- Defines methods for saving troops, retrieving trained troops, and managing troop counts.
+
+### Repostiory Implementations
+
+#### InMemoryTroopRepository
+- Implements `TroopRepository` for in-memory troop storage.
+- Uses `InMemoryDatabase` for data storage.
+
+#### InMemoryBarrackRepository
+- Implements `BarrackRepository` for in-memory barrack troop storage.
+- Relies on `InMemoryDatabase` for data storage.
+
+#### InMemoryArmyCampRepository
+- Implements `ArmyCampRepository` for in-memory army camp troop storage.
+- Utilizes `InMemoryDatabase` for data storage.
+
+#### FakeDatabase
+- Implements `InMemoryDatabase` for storing data.
+
+### Domain
+
+#### Model
+##### Entitity
+- Archer
+- Barbarian
+- Trooper
+#### Value Objects
+- TroopType: enum
+
+#### Domain Service
+- Training
+
+### Dependency Injection
+
+#### TroopModule
+- Module for dependency injection using Google Guice.
+
+### Main Application File
+
+#### Main
+- Main application file to start the Troop Simulation Game.
+
+## Usage
+
+To use the Troop Simulation Game:
+
+1. Ensure all dependencies are installed.
+2. Start the application.
+3. Use the provided controllers to create, train, and manage troops.
+
+### Gradle Dependency
+
+```gradle
+testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+implementation 'com.google.inject:guice:7.0.0'
 
