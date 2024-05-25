@@ -7,7 +7,6 @@ import org.amaap.troopsimulationgame.controller.dto.HttpStatus;
 import org.amaap.troopsimulationgame.controller.dto.Response;
 import org.amaap.troopsimulationgame.domain.model.entity.Trooper;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTrainingTimeAndCostException;
-import org.amaap.troopsimulationgame.service.exception.InvalidWeaponException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -53,7 +52,7 @@ class BarrackControllerTest {
     }
 
     @Test
-    void shouldBeAbleToReturnOkResponseIfTrainingIsComplete() throws InvalidWeaponException, InvalidTroopTrainingTimeAndCostException {
+    void shouldBeAbleToReturnOkResponseIfTrainingIsComplete() throws InvalidTroopTrainingTimeAndCostException {
         // arrange
         List<Trooper> troopers = new ArrayList<>();
         troopers.add(new Trooper(3, 10, "sword"));

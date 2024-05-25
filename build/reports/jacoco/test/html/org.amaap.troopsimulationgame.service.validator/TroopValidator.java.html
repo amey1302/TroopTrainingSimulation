@@ -7,49 +7,40 @@ import org.amaap.troopsimulationgame.domain.model.valueobjects.TroopType;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTypeException;
 
 <span class="nc" id="L9">public class TroopValidator {</span>
-    public static boolean isInvalidType(String troopType) {
-<span class="pc bpc" id="L11" title="1 of 4 branches missed.">        if (troopType == null || troopType.isEmpty()) {</span>
+    public static boolean isInvalid(String troopType) {
+<span class="fc bfc" id="L11" title="All 4 branches covered.">        if (troopType == null || troopType.isEmpty()) {</span>
 <span class="fc" id="L12">            return true;</span>
         }
-<span class="pc bpc" id="L14" title="1 of 2 branches missed.">        if (troopType.matches(&quot;.*\\s+.*&quot;)) {</span>
-<span class="nc" id="L15">            return true;</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">        if (!isValidTroopType(troopType)) {</span>
+<span class="fc" id="L15">            return true;</span>
         }
-<span class="fc bfc" id="L17" title="All 2 branches covered.">        if (!isValidTroopType(troopType)) {</span>
-<span class="fc" id="L18">            return true;</span>
+<span class="pc bpc" id="L17" title="1 of 2 branches missed.">        if (troopType.matches(&quot;.*\\d+.*&quot;)) {</span>
+<span class="nc" id="L18">            return true;</span>
         }
-<span class="pc bpc" id="L20" title="1 of 2 branches missed.">        if (troopType.matches(&quot;.*\\d+.*&quot;)) {</span>
-<span class="nc" id="L21">            return true;</span>
-        }
-<span class="fc" id="L23">        return false;</span>
-    }
-
-    public static boolean isInvalid(String weapon) {
-<span class="pc bpc" id="L27" title="1 of 4 branches missed.">        if (weapon == null || weapon.isEmpty()) {</span>
-<span class="fc" id="L28">            return true;</span>
-        }
-<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (weapon.matches(&quot;.*\\d+.*&quot;)) {</span>
-<span class="fc" id="L31">            return true;</span>
-        }
-<span class="fc" id="L33">        return false;</span>
+<span class="fc" id="L20">        return false;</span>
     }
 
     private static boolean isValidTroopType(String troopType) {
-<span class="fc bfc" id="L37" title="All 2 branches covered.">        for (TroopType troop : TroopType.values()) {</span>
-<span class="fc bfc" id="L38" title="All 2 branches covered.">            if (troop.getTypeName().equalsIgnoreCase(troopType)) {</span>
-<span class="fc" id="L39">                return true;</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        for (TroopType troop : TroopType.values()) {</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">            if (troop.getTypeName().equalsIgnoreCase(troopType)) {</span>
+<span class="fc" id="L26">                return true;</span>
             }
         }
-<span class="fc" id="L42">        return false;</span>
+<span class="fc" id="L29">        return false;</span>
     }
     public static Class&lt;? extends Trooper&gt; getTroopClass(String troopType) throws InvalidTroopTypeException {
-<span class="nc bnc" id="L45" title="All 3 branches missed.">        switch (troopType.toLowerCase()) {</span>
-            case &quot;archer&quot;:
-<span class="nc" id="L47">                return Archer.class;</span>
-            case &quot;barbarian&quot;:
-<span class="nc" id="L49">                return Barbarian.class;</span>
-            default:
-<span class="nc" id="L51">                throw new InvalidTroopTypeException(&quot;Invalid troop type: &quot; + troopType);</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        for (TroopType type : TroopType.values()) {</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">            if (type.getTypeName().equalsIgnoreCase(troopType)) {</span>
+<span class="pc bpc" id="L34" title="1 of 3 branches missed.">                switch (type) {</span>
+                    case Archer:
+<span class="fc" id="L36">                        return Archer.class;</span>
+                    case Barbarian:
+<span class="fc" id="L38">                        return Barbarian.class;</span>
+                }
+            }
         }
+<span class="fc" id="L42">        throw new InvalidTroopTypeException(&quot;Invalid troop type: &quot; + troopType);</span>
     }
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -37,7 +37,7 @@ class BarrackServiceTest {
     @Test
     void shouldBeAbleToTrainTheTroopsInTheBarrackRepository() throws InvalidTroopDataException {
         // arrange
-        barrackService.create(10, "Barbarian");
+        barrackService.create(10, "Archer");
 
         // act
         List<Trooper> troopers = barrackService.getTroppers();

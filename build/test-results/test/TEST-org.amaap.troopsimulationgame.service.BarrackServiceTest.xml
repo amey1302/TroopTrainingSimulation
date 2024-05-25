@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.amaap.troopsimulationgame.service.BarrackServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-05-12T17:10:14" hostname="LAPTOP-205J7BQ6" time="0.05">
+<testsuite name="org.amaap.troopsimulationgame.service.BarrackServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-05-25T19:47:16" hostname="LAPTOP-205J7BQ6" time="60.105">
   <properties/>
-  <testcase name="shouldBeAbleToTrainTheTroopsInTheBarrackRepository()" classname="org.amaap.troopsimulationgame.service.BarrackServiceTest" time="0.043"/>
-  <testcase name="shouldBeAbleToStoreTheTroopsInTheBarrackRepository()" classname="org.amaap.troopsimulationgame.service.BarrackServiceTest" time="0.006"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="shouldBeAbleToTrainTheTroopsInTheBarrackRepository()" classname="org.amaap.troopsimulationgame.service.BarrackServiceTest" time="60.093"/>
+  <testcase name="shouldBeAbleToStoreTheTroopsInTheBarrackRepository()" classname="org.amaap.troopsimulationgame.service.BarrackServiceTest" time="0.011"/>
+  <system-out><![CDATA[Troops are Training...
+Training Completed...
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

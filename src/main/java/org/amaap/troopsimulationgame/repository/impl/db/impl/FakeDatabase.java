@@ -14,7 +14,6 @@ public class FakeDatabase implements InMemoryDatabase {
     private int archerCount = 0;
     private int barbarianCount = 0;
 
-
     @Override
     public void insertIntoTroopTable(Trooper trooper) throws InvalidTroopTypeException {
         troops.add(trooper);
@@ -75,7 +74,5 @@ public class FakeDatabase implements InMemoryDatabase {
     public void setTrainedBarbarianCount(int count) {
         this.barbarianCount = count;
     }
-
-
 
 }

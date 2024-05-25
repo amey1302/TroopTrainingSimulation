@@ -11,7 +11,7 @@ import org.amaap.troopsimulationgame.service.exception.NoTrainedTroopsAvailableE
 
 import java.util.List;
 
-import static org.amaap.troopsimulationgame.service.validator.TroopValidator.isInvalidType;
+import static org.amaap.troopsimulationgame.service.validator.TroopValidator.isInvalid;
 
 public class ArmyCampService {
     private BarrackRepository barrackRepository;
@@ -50,7 +50,7 @@ public class ArmyCampService {
 <span class="fc" id="L50">    }</span>
 
     public int getTroopersCountFor(String troopType) throws InvalidTroopTypeException {
-<span class="fc bfc" id="L53" title="All 2 branches covered.">        if (isInvalidType(troopType)) throw new InvalidTroopTypeException(&quot;&quot; + troopType);</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        if (isInvalid(troopType)) throw new InvalidTroopTypeException(&quot;&quot; + troopType);</span>
 <span class="pc bpc" id="L54" title="1 of 4 branches missed.">        else if (troopType.equals(&quot;Archer&quot;) || troopType.equals(&quot;archer&quot;)) {</span>
 <span class="fc" id="L55">            return armyCampRepository.getTrainedArcherCount();</span>
         } else

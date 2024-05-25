@@ -10,7 +10,7 @@ import org.amaap.troopsimulationgame.service.exception.*;
 
 import java.util.List;
 
-import static org.amaap.troopsimulationgame.service.validator.TroopValidator.isInvalidType;
+import static org.amaap.troopsimulationgame.service.validator.TroopValidator.isInvalid;
 
 public class BarrackService {
     private BarrackRepository barrackRepository;
@@ -22,10 +22,10 @@ public class BarrackService {
         this.training = training;
     }
 
-    public void create(int troopCount, String troopType) throws InvalidTroopDataException, InvalidWeaponException {
+    public void create(int troopCount, String troopType) throws InvalidTroopDataException {
         if (troopCount <= 0) throw new InvalidTroopCountException("" + troopCount);
         if (troopCount > 10) throw new BarrackCapacityFullException("" + troopCount);
-        if (isInvalidType(troopType)) throw new InvalidTroopTypeException("" + troopType);
+        if (isInvalid(troopType)) throw new InvalidTroopTypeException("" + troopType);
         for (int i = 0; i < troopCount; i++) {
             if ("Barbarian".equals(troopType) || "barbarian".equals(troopType)) {
                 barrackRepository.insert(new Barbarian(3, 10, "sword"));

@@ -14,31 +14,31 @@ import java.util.List;
 <span class="fc" id="L14">    private int archerCount = 0;</span>
 <span class="fc" id="L15">    private int barbarianCount = 0;</span>
 
-
     @Override
     public void insertIntoTroopTable(Trooper trooper) throws InvalidTroopTypeException {
-<span class="fc" id="L20">        troops.add(trooper);</span>
-<span class="fc" id="L21">    }</span>
+<span class="fc" id="L19">        troops.add(trooper);</span>
+<span class="fc" id="L20">    }</span>
 
     @Override
     public List&lt;Trooper&gt; getTroops() {
-<span class="fc" id="L25">        return troops;</span>
+<span class="fc" id="L24">        return troops;</span>
     }
 
     @Override
     public void insertIntoBarrackTable(Trooper trooper) {
-<span class="fc" id="L30">        troopers.add(trooper);</span>
-<span class="fc" id="L31">    }</span>
+<span class="fc" id="L29">        troopers.add(trooper);</span>
+<span class="fc" id="L30">    }</span>
 
     @Override
     public List&lt;Trooper&gt; getTroopers() {
-<span class="fc" id="L35">        return troopers;</span>
+<span class="fc" id="L34">        return troopers;</span>
     }
 
     @Override
     public void save(List&lt;Trooper&gt; trainedTroops) {
-<span class="fc" id="L40">        trainedTroopers.addAll(trainedTroops);</span>
-<span class="fc" id="L41">    }</span>
+<span class="fc" id="L39">        trainedTroopers.addAll(trainedTroops);</span>
+<span class="fc" id="L40">    }</span>
+
 
     @Override
     public List&lt;Trooper&gt; getTrainedTroops() {
@@ -74,8 +74,6 @@ import java.util.List;
     public void setTrainedBarbarianCount(int count) {
 <span class="fc" id="L75">        this.barbarianCount = count;</span>
 <span class="fc" id="L76">    }</span>
-
-
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

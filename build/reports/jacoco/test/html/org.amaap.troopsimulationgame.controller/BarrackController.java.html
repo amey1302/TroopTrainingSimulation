@@ -14,7 +14,7 @@ public class BarrackController {
 <span class="fc" id="L14">        this.barrackService = barrackService;</span>
 <span class="fc" id="L15">    }</span>
 
-    Response create(int troopCount, String troopType) {
+    public Response create(int troopCount, String troopType) {
         try {
 <span class="fc" id="L19">            barrackService.create(troopCount, troopType);</span>
 <span class="fc" id="L20">            return new Response(HttpStatus.OK, &quot;Troops Created Successfully&quot;);</span>
@@ -23,7 +23,7 @@ public class BarrackController {
         }
     }
 
-    Response trainTroopers() {
+    public Response trainTroopers() {
         try {
 <span class="fc" id="L28">            barrackService.train();</span>
 <span class="fc" id="L29">            return new Response(HttpStatus.OK, &quot;Troops Trained Successfully&quot;);</span>

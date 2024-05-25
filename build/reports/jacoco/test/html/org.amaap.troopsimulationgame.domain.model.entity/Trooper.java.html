@@ -1,46 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Trooper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TroopSimulation</a> &gt; <a href="index.source.html" class="el_package">org.amaap.troopsimulationgame.domain.model.entity</a> &gt; <span class="el_source">Trooper.java</span></div><h1>Trooper.java</h1><pre class="source lang-java linenums">package org.amaap.troopsimulationgame.domain.model.entity;
 
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTrainingTimeAndCostException;
-import org.amaap.troopsimulationgame.service.exception.InvalidWeaponException;
 
 import java.util.Objects;
-
-import static org.amaap.troopsimulationgame.service.validator.TroopValidator.isInvalid;
 
 public class Trooper {
     private final int trainingTime;
     private final int trainingCost;
     private final String weapon;
 
-<span class="fc" id="L15">    public Trooper(int trainingTime, int trainingCost, String weapon) throws InvalidTroopTrainingTimeAndCostException, InvalidWeaponException {</span>
-<span class="pc bpc" id="L16" title="1 of 2 branches missed.">        if (trainingCost &lt;= 0) throw new InvalidTroopTrainingTimeAndCostException(&quot;&quot; + trainingCost);</span>
-<span class="pc bpc" id="L17" title="1 of 2 branches missed.">        if (trainingTime &lt;= 0) throw new InvalidTroopTrainingTimeAndCostException(&quot;&quot; + trainingTime);</span>
-<span class="pc bpc" id="L18" title="1 of 2 branches missed.">        if (isInvalid(weapon)) throw new InvalidWeaponException(&quot; &quot; + weapon);</span>
-<span class="fc" id="L19">        this.trainingTime = trainingTime;</span>
-<span class="fc" id="L20">        this.trainingCost = trainingCost;</span>
-<span class="fc" id="L21">        this.weapon = weapon;</span>
-<span class="fc" id="L22">    }</span>
+<span class="fc" id="L12">    public Trooper(int trainingTime, int trainingCost, String weapon) throws InvalidTroopTrainingTimeAndCostException {</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        if (trainingCost &lt;= 0) throw new InvalidTroopTrainingTimeAndCostException(&quot;&quot; + trainingCost);</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">        if (trainingTime &lt;= 0) throw new InvalidTroopTrainingTimeAndCostException(&quot;&quot; + trainingTime);</span>
+<span class="fc" id="L15">        this.trainingTime = trainingTime;</span>
+<span class="fc" id="L16">        this.trainingCost = trainingCost;</span>
+<span class="fc" id="L17">        this.weapon = weapon;</span>
+<span class="fc" id="L18">    }</span>
 
 
     public int getTrainingTime() {
-<span class="fc" id="L26">        return trainingTime;</span>
+<span class="fc" id="L22">        return trainingTime;</span>
     }
 
     public int getTrainingCost() {
-<span class="nc" id="L30">        return trainingCost;</span>
+<span class="fc" id="L26">        return trainingCost;</span>
     }
 
     @Override
     public boolean equals(Object o) {
-<span class="pc bpc" id="L35" title="1 of 2 branches missed.">        if (this == o) return true;</span>
-<span class="nc bnc" id="L36" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
-<span class="nc" id="L37">        Trooper archer = (Trooper) o;</span>
-<span class="nc bnc" id="L38" title="All 6 branches missed.">        return trainingTime == archer.trainingTime &amp;&amp; trainingCost == archer.trainingCost &amp;&amp; Objects.equals(weapon, archer.weapon);</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        if (this == o) return true;</span>
+<span class="pc bpc" id="L32" title="1 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L33">        Trooper archer = (Trooper) o;</span>
+<span class="pc bpc" id="L34" title="2 of 6 branches missed.">        return trainingTime == archer.trainingTime &amp;&amp; trainingCost == archer.trainingCost &amp;&amp; Objects.equals(weapon, archer.weapon);</span>
     }
 
     @Override
     public int hashCode() {
-<span class="nc" id="L43">        return Objects.hash(trainingTime, trainingCost, weapon);</span>
+<span class="nc" id="L39">        return Objects.hash(trainingTime, trainingCost, weapon);</span>
     }
 
 

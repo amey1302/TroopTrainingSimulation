@@ -100,20 +100,5 @@ class TroopControllerTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    void shouldBeAbleToReturnBAD_REQUESTIfWeaponIsInvalid() {
-        // arrange
-        String troopType = "Archer";
-        int trainingTime = 1;
-        int trainingCost = 20;
-        String weapon = "8877";
-        Response expected = new Response(HttpStatus.BAD_REQUEST, "Invalid Input Parameter " + weapon);
-
-        // act
-        Response actual = troopController.create(troopType, trainingTime, trainingCost, weapon);
-
-        // assert
-        assertEquals(expected, actual);
-    }
 
 }

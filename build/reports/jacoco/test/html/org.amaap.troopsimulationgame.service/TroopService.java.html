@@ -6,36 +6,33 @@ import org.amaap.troopsimulationgame.domain.model.valueobjects.TroopType;
 import org.amaap.troopsimulationgame.repository.TroopRepository;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTrainingTimeAndCostException;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTypeException;
-import org.amaap.troopsimulationgame.service.exception.InvalidWeaponException;
 
 import java.util.EnumSet;
 
 import static org.amaap.troopsimulationgame.service.validator.TroopValidator.isInvalid;
-import static org.amaap.troopsimulationgame.service.validator.TroopValidator.isInvalidType;
 
 public class TroopService {
     private TroopRepository troopRepository;
 
     @Inject
-<span class="fc" id="L20">    public TroopService(TroopRepository troopRepository) {</span>
-<span class="fc" id="L21">        this.troopRepository = troopRepository;</span>
-<span class="fc" id="L22">    }</span>
+<span class="fc" id="L18">    public TroopService(TroopRepository troopRepository) {</span>
+<span class="fc" id="L19">        this.troopRepository = troopRepository;</span>
+<span class="fc" id="L20">    }</span>
 
-    public void create(String troopType, int trainingCost, int trainingTime, String weapon) throws InvalidTroopTrainingTimeAndCostException, InvalidTroopTypeException, InvalidWeaponException {
-<span class="fc bfc" id="L25" title="All 2 branches covered.">        if (trainingCost &lt;= 0) throw new InvalidTroopTrainingTimeAndCostException(&quot;&quot; + trainingCost);</span>
-<span class="fc bfc" id="L26" title="All 2 branches covered.">        if (trainingTime &lt;= 0) throw new InvalidTroopTrainingTimeAndCostException(&quot;&quot; + trainingTime);</span>
-<span class="fc bfc" id="L27" title="All 2 branches covered.">        if (isInvalidType(troopType)) throw new InvalidTroopTypeException(&quot;&quot; + troopType);</span>
-<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (isInvalid(weapon)) throw new InvalidWeaponException(&quot;&quot; + weapon);</span>
-<span class="fc" id="L29">        Trooper trooper = null;</span>
-<span class="pc bpc" id="L30" title="1 of 2 branches missed.">        if (EnumSet.allOf(TroopType.class).contains(troopType)) {</span>
-<span class="nc bnc" id="L31" title="All 2 branches missed.">            if (troopType.equals(TroopType.Archer)) {</span>
-<span class="nc" id="L32">                trooper = new Trooper(trainingTime, trainingCost, weapon);</span>
-<span class="nc bnc" id="L33" title="All 2 branches missed.">            } else if (troopType.equals(TroopType.Barbarian)) {</span>
-<span class="nc" id="L34">                trooper = new Trooper(trainingTime, trainingCost, weapon);</span>
+    public void create(String troopType, int trainingCost, int trainingTime, String weapon) throws InvalidTroopTrainingTimeAndCostException, InvalidTroopTypeException {
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        if (trainingCost &lt;= 0) throw new InvalidTroopTrainingTimeAndCostException(&quot;&quot; + trainingCost);</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        if (trainingTime &lt;= 0) throw new InvalidTroopTrainingTimeAndCostException(&quot;&quot; + trainingTime);</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        if (isInvalid(troopType)) throw new InvalidTroopTypeException(&quot;&quot; + troopType);</span>
+<span class="fc" id="L26">        Trooper trooper = null;</span>
+<span class="pc bpc" id="L27" title="1 of 2 branches missed.">        if (EnumSet.allOf(TroopType.class).contains(troopType)) {</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">            if (troopType.equals(TroopType.Archer)) {</span>
+<span class="nc" id="L29">                trooper = new Trooper(trainingTime, trainingCost, weapon);</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">            } else if (troopType.equals(TroopType.Barbarian)) {</span>
+<span class="nc" id="L31">                trooper = new Trooper(trainingTime, trainingCost, weapon);</span>
             }
         }
-<span class="fc" id="L37">        troopRepository.insert(trooper);</span>
-<span class="fc" id="L38">    }</span>
+<span class="fc" id="L34">        troopRepository.insert(trooper);</span>
+<span class="fc" id="L35">    }</span>
 
 
 }

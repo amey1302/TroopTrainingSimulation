@@ -3,13 +3,8 @@ package org.amaap.troopsimulationgame.service;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import org.amaap.troopsimulationgame.TroopModule;
-import org.amaap.troopsimulationgame.repository.TroopRepository;
-import org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepository;
-import org.amaap.troopsimulationgame.repository.impl.db.InMemoryDatabase;
-import org.amaap.troopsimulationgame.repository.impl.db.impl.FakeDatabase;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTrainingTimeAndCostException;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTypeException;
-import org.amaap.troopsimulationgame.service.exception.InvalidWeaponException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -97,24 +92,12 @@ class TroopServiceTest {
     }
 
     @Test
-    void shouldThrowInvalidWeaponExceptionWhenWeaponIsNull() {
+    void shouldBeAbleToCreateArcher() {
         // arrange
-        int trainingCost = 100;
-        int trainingTime = 10;
-        String troopType = "Barbarian";
-        String weapon = null;
-
-        // act and assert
-        assertThrows(InvalidWeaponException.class, () -> troopService.create(troopType, trainingCost, trainingTime, weapon));
-    }
-
-    @Test
-    void shouldBeAbleToCreateTroopWhenInputIsValid() {
-        // arrange
-        int trainingCost = 100;
-        int trainingTime = 10;
-        String troopType = "Barbarian";
-        String weapon = "Sword";
+        int trainingCost = 20;
+        int trainingTime = 6;
+        String troopType = "Archer";
+        String weapon = "bow and arrow";
 
         // act and assert
         assertDoesNotThrow(() -> troopService.create(troopType, trainingCost, trainingTime, weapon));
@@ -125,6 +108,17 @@ class TroopServiceTest {
         // arrange
         int trainingCost = 100;
         int trainingTime = 10;
+        String troopType = "Barbarian";
+        String weapon = "Sword";
+
+        // act and assert
+        assertDoesNotThrow(() -> troopService.create(troopType, trainingCost, trainingTime, weapon));
+    }
+    @Test
+    void shouldBeAbleToCreateBarbarian() {
+        // arrange
+        int trainingCost = 10;
+        int trainingTime = 3;
         String troopType = "Barbarian";
         String weapon = "Sword";
 

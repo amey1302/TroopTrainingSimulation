@@ -14,7 +14,7 @@ public class BarrackController {
         this.barrackService = barrackService;
     }
 
-    Response create(int troopCount, String troopType) {
+    public Response create(int troopCount, String troopType) {
         try {
             barrackService.create(troopCount, troopType);
             return new Response(HttpStatus.OK, "Troops Created Successfully");
@@ -23,7 +23,7 @@ public class BarrackController {
         }
     }
 
-    Response trainTroopers() {
+    public Response trainTroopers() {
         try {
             barrackService.train();
             return new Response(HttpStatus.OK, "Troops Trained Successfully");

@@ -21,7 +21,7 @@ public interface InMemoryDatabase {
 
     List<Trooper> getTrainedTroopsFromArmyCamp();
 
-//
+
     int getTrainedArcherCount();
 
     void setTrainedArcherCount(int count);

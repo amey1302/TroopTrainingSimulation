@@ -6,12 +6,10 @@ import org.amaap.troopsimulationgame.domain.model.valueobjects.TroopType;
 import org.amaap.troopsimulationgame.repository.TroopRepository;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTrainingTimeAndCostException;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTypeException;
-import org.amaap.troopsimulationgame.service.exception.InvalidWeaponException;
 
 import java.util.EnumSet;
 
 import static org.amaap.troopsimulationgame.service.validator.TroopValidator.isInvalid;
-import static org.amaap.troopsimulationgame.service.validator.TroopValidator.isInvalidType;
 
 public class TroopService {
     private TroopRepository troopRepository;
@@ -21,11 +19,10 @@ public class TroopService {
         this.troopRepository = troopRepository;
     }
 
-    public void create(String troopType, int trainingCost, int trainingTime, String weapon) throws InvalidTroopTrainingTimeAndCostException, InvalidTroopTypeException, InvalidWeaponException {
+    public void create(String troopType, int trainingCost, int trainingTime, String weapon) throws InvalidTroopTrainingTimeAndCostException, InvalidTroopTypeException {
         if (trainingCost <= 0) throw new InvalidTroopTrainingTimeAndCostException("" + trainingCost);
         if (trainingTime <= 0) throw new InvalidTroopTrainingTimeAndCostException("" + trainingTime);
-        if (isInvalidType(troopType)) throw new InvalidTroopTypeException("" + troopType);
-        if (isInvalid(weapon)) throw new InvalidWeaponException("" + weapon);
+        if (isInvalid(troopType)) throw new InvalidTroopTypeException("" + troopType);
         Trooper trooper = null;
         if (EnumSet.allOf(TroopType.class).contains(troopType)) {
             if (troopType.equals(TroopType.Archer)) {
