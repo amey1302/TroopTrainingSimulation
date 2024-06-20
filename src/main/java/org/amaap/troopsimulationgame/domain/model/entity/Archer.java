@@ -1,10 +1,10 @@
 package org.amaap.troopsimulationgame.domain.model.entity;
 
-import org.amaap.troopsimulationgame.service.exception.InvalidTroopTrainingTimeAndCostException;
+import org.amaap.troopsimulationgame.service.exception.InvalidTroopTrainingCostException;
 
 public class Archer extends Trooper {
 
-    public Archer(int trainingTime, int trainingCost, String weapon) throws InvalidTroopTrainingTimeAndCostException{
+    public Archer(int trainingTime, int trainingCost, String weapon) throws InvalidTroopTrainingCostException {
         super(trainingTime, trainingCost, weapon);
     }
 

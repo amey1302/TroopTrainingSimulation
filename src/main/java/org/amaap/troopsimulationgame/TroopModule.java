@@ -1,7 +1,6 @@
 package org.amaap.troopsimulationgame;
 
 import com.google.inject.AbstractModule;
-import org.amaap.troopsimulationgame.controller.ArmyCampController;
 import org.amaap.troopsimulationgame.repository.ArmyCampRepository;
 import org.amaap.troopsimulationgame.repository.BarrackRepository;
 import org.amaap.troopsimulationgame.repository.TroopRepository;

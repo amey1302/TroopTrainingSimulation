@@ -59,12 +59,13 @@ class TroopControllerTest {
         int trainingTime = -1;
         int trainingCost = 20;
         String weapon = "bow and arrow";
-        Response expected = new Response(HttpStatus.BAD_REQUEST, "Invalid Input Parameter " + trainingTime);
+        Response expected = new Response(HttpStatus.BAD_REQUEST, "Invalid TrainingTime" + trainingTime);
 
         // act
         Response actual = troopController.create(troopType, trainingTime, trainingCost, weapon);
 
         // assert
+
         assertEquals(expected, actual);
     }
 
@@ -75,7 +76,7 @@ class TroopControllerTest {
         int trainingTime = 6;
         int trainingCost = -20;
         String weapon = "bow and arrow";
-        Response expected = new Response(HttpStatus.BAD_REQUEST, "Invalid Input Parameter " + trainingCost);
+        Response expected = new Response(HttpStatus.BAD_REQUEST, "Invalid Troop Cost" + trainingCost);
 
         // act
         Response actual = troopController.create(troopType, trainingTime, trainingCost, weapon);
@@ -91,7 +92,7 @@ class TroopControllerTest {
         int trainingCost = 20;
         String weapon = "bow and arrow";
         String troopType = "9809";
-        Response expected = new Response(HttpStatus.BAD_REQUEST, "Invalid Input Parameter " + troopType);
+        Response expected = new Response(HttpStatus.BAD_REQUEST, "Invalid Troop Type" + troopType);
 
         // act
         Response actual = troopController.create(troopType, trainingTime, trainingCost, weapon);

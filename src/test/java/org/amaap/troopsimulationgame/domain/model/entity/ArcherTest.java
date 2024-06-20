@@ -1,7 +1,7 @@
 package org.amaap.troopsimulationgame.domain.model.entity;
 
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopDataException;
-import org.amaap.troopsimulationgame.service.exception.InvalidTroopTrainingTimeAndCostException;
+import org.amaap.troopsimulationgame.service.exception.InvalidTroopTrainingCostException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,8 +22,8 @@ class ArcherTest {
     @Test
     void shouldThrowExceptionForInvalidArcherParameters() {
         // assert
-        assertThrows(InvalidTroopTrainingTimeAndCostException.class, () -> new Archer(-1, 15, "bow and arrow"));
-        assertThrows(InvalidTroopTrainingTimeAndCostException.class, () -> new Archer(5, -15, "bow and arrow"));
+        assertThrows(InvalidTroopTrainingCostException.class, () -> new Archer(-1, 15, "bow and arrow"));
+        assertThrows(InvalidTroopTrainingCostException.class, () -> new Archer(5, -15, "bow and arrow"));
     }
 
     @Test

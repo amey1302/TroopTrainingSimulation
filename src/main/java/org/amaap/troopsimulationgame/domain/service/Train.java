@@ -32,7 +32,7 @@ public class Train {
 
     private List<Trooper> trainBatch(List<Trooper> batch) {
         List<Trooper> trainedTroops = new ArrayList<>();
-        System.out.println("Troops are Train...");
+        System.out.println("Troops are Training...");
         for (int i = 0; i < batch.size(); i++) {
             Trooper troopObj = batch.get(i);
             if (troopObj instanceof Archer) {
@@ -57,7 +57,7 @@ public class Train {
             }
 
         }
-        System.out.println("Train Completed...");
+        System.out.println("Training Completed...");
         return trainedTroops;
     }
 

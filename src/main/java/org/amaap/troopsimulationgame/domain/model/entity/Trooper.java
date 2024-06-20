@@ -1,6 +1,6 @@
 package org.amaap.troopsimulationgame.domain.model.entity;
 
-import org.amaap.troopsimulationgame.service.exception.InvalidTroopTrainingTimeAndCostException;
+import org.amaap.troopsimulationgame.service.exception.InvalidTroopTrainingCostException;
 
 import java.util.Objects;
 
@@ -9,9 +9,9 @@ public class Trooper {
     private final int trainingCost;
     private final String weapon;
 
-    public Trooper(int trainingTime, int trainingCost, String weapon) throws InvalidTroopTrainingTimeAndCostException {
-        if (trainingCost <= 0) throw new InvalidTroopTrainingTimeAndCostException("" + trainingCost);
-        if (trainingTime <= 0) throw new InvalidTroopTrainingTimeAndCostException("" + trainingTime);
+    public Trooper(int trainingTime, int trainingCost, String weapon) throws InvalidTroopTrainingCostException {
+        if (trainingCost <= 0) throw new InvalidTroopTrainingCostException("" + trainingCost);
+        if (trainingTime <= 0) throw new InvalidTroopTrainingCostException("" + trainingTime);
         this.trainingTime = trainingTime;
         this.trainingCost = trainingCost;
         this.weapon = weapon;

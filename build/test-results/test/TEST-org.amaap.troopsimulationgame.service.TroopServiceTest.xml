@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.amaap.troopsimulationgame.service.TroopServiceTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2024-05-25T19:48:16" hostname="LAPTOP-205J7BQ6" time="0.081">
+<testsuite name="org.amaap.troopsimulationgame.service.TroopServiceTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2024-06-20T18:31:33" hostname="LAPTOP-205J7BQ6" time="0.044">
   <properties/>
-  <testcase name="shouldThrowInvalidTroopTrainingTimeAndCostExceptionWhenTrainingTimeIsZero()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.009"/>
-  <testcase name="shouldThrowInvalidTroopTypeExceptionWhenTypeIsNull()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.008"/>
-  <testcase name="shouldBeAbleToCreateBarbarian()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.011"/>
-  <testcase name="shouldThrowInvalidTroopTrainingTimeAndCostExceptionWhenTrainingTimeIsNegative()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.009"/>
-  <testcase name="shouldBeAbleToInsertRecordInTroopRepository()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.007"/>
-  <testcase name="shouldThrowInvalidTroopTypeExceptionWhenTypeIsNotValid()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.008"/>
-  <testcase name="shouldThrowInvalidTroopTrainingTimeAndCostExceptionWhenTrainingCostIsNegative()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.005"/>
-  <testcase name="shouldThrowInvalidTroopTrainingTimeAndCostExceptionWhenTrainingCostIsZero()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.008"/>
-  <testcase name="shouldBeAbleToCreateArcher()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.008"/>
+  <testcase name="shouldThrowInvalidTroopTypeExceptionWhenTypeIsNull()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.005"/>
+  <testcase name="shouldBeAbleToCreateBarbarian()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.006"/>
+  <testcase name="shouldThrowInvalidTroopTrainingCostExceptionWhenTrainingCostIsNegative()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.005"/>
+  <testcase name="shouldThrowInvalidTroopTrainingCostExceptionWhenTrainingCostIsZero()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.005"/>
+  <testcase name="shouldThrowInvalidTroopTrainingTimeExceptionWhenTrainingTimeIsNegative()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.003"/>
+  <testcase name="shouldBeAbleToInsertRecordInTroopRepository()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.003"/>
+  <testcase name="shouldThrowInvalidTroopTypeExceptionWhenTypeIsNotValid()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.004"/>
+  <testcase name="shouldBeAbleToCreateArcher()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.004"/>
+  <testcase name="shouldThrowInvalidTroopTrainingTimeExceptionWhenTrainingTimeIsZero()" classname="org.amaap.troopsimulationgame.service.TroopServiceTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,6 +1,6 @@
 ## Problem Statement :
 Problem Statement
-Troop training simulation is inspired by Clash of Clans games. As a gaming programmer, you have to create a simulation software using which gamers can train army troops.
+Troop train simulation is inspired by Clash of Clans games. As a gaming programmer, you have to create a simulation software using which gamers can train army troops.
 
 Army Troops
 There are two kinds of troops: Archers and Barbarians. Each trooper (archer/barbarian) has the following characteristics:
@@ -18,13 +18,13 @@ The maximum seat capacity of a barracks is 10.
 Others have to wait outside the barracks.
 Barracks can have a mix of troopers, e.g., 5 Archers and 5 Barbarians, or 4 Archers and 6 Barbarians, or 10 Archers, or 10 Barbarians.
 Army Camp
-The army camp is where troops assemble after training.
+The army camp is where troops assemble after train.
 
 Scenario 1
-Simulate the training and train barbarians and/or archers. As a gamer:
+Simulate the train and train barbarians and/or archers. As a gamer:
 
 You should be able to input the number of barbarians and/or archers you would like to train.
-You should be able to see how many troops are trained and available in the troop camp after training completes.# Troop Simulation Game
+You should be able to see how many troops are trained and available in the troop camp after train completes.# Troop Simulation Game
 
 ## Overview
 
@@ -40,9 +40,9 @@ This project implements a Troop Simulation Game using the MVC (Model-View-Contro
 - Provides methods for creating troops of various types.
 
 #### BarrackController
-- Manages troop creation and training within the barrack and return response
+- Manages troop creation and train within the barrack and return response
 - Relies on `BarrackService` for troop operations.
-- Provides functionality for bulk troop creation and training.
+- Provides functionality for bulk troop creation and train.
 
 #### ArmyCampController
 - Manages troops in the army camp and return response.
@@ -59,7 +59,7 @@ This project implements a Troop Simulation Game using the MVC (Model-View-Contro
 #### BarrackService
 - Manages troop operations in the barrack.
 - Relies on `BarrackRepository` for troop persistence.
-- Implements troop creation and training logic.
+- Implements troop creation and train logic.
 
 #### ArmyCampService
 - Handles troop operations in the army camp.
@@ -74,7 +74,7 @@ This project implements a Troop Simulation Game using the MVC (Model-View-Contro
 
 #### BarrackRepository
 - Interface for managing troops in the barrack.
-- Provides methods for troop insertion, retrieval, and training.
+- Provides methods for troop insertion, retrieval, and train.
 
 #### ArmyCampRepository
 - Interface for managing troops in the army camp.

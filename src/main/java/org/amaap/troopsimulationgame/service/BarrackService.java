@@ -4,7 +4,7 @@ import com.google.inject.Inject;
 import org.amaap.troopsimulationgame.domain.model.entity.Archer;
 import org.amaap.troopsimulationgame.domain.model.entity.Barbarian;
 import org.amaap.troopsimulationgame.domain.model.entity.Trooper;
-import org.amaap.troopsimulationgame.domain.service.Training;
+import org.amaap.troopsimulationgame.domain.service.Train;
 import org.amaap.troopsimulationgame.repository.BarrackRepository;
 import org.amaap.troopsimulationgame.service.exception.*;
 
@@ -14,18 +14,18 @@ import static org.amaap.troopsimulationgame.service.validator.TroopValidator.isI
 
 public class BarrackService {
     private BarrackRepository barrackRepository;
-    private Training training;
+    private Train train;
 
     @Inject
-    public BarrackService(BarrackRepository barrackRepository, Training training) {
+    public BarrackService(BarrackRepository barrackRepository, Train train) {
         this.barrackRepository = barrackRepository;
-        this.training = training;
+        this.train = train;
     }
 
     public void create(int troopCount, String troopType) throws InvalidTroopDataException {
-        if (troopCount <= 0) throw new InvalidTroopCountException("" + troopCount);
-        if (troopCount > 10) throw new BarrackCapacityFullException("" + troopCount);
-        if (isInvalid(troopType)) throw new InvalidTroopTypeException("" + troopType);
+        if (troopCount <= 0) throw new InvalidTroopCountException("Invalid Troop Count" + troopCount);
+        if (troopCount > 10) throw new BarrackCapacityFullException("Barrack Capacity is Full" + troopCount);
+        if (isInvalid(troopType)) throw new InvalidTroopTypeException("Invalid TroopType" + troopType);
         for (int i = 0; i < troopCount; i++) {
             if ("Barbarian".equals(troopType) || "barbarian".equals(troopType)) {
                 barrackRepository.insert(new Barbarian(3, 10, "sword"));
@@ -36,7 +36,7 @@ public class BarrackService {
     }
 
     public List<Trooper> train() throws InvalidTroopTypeException {
-        List<Trooper> trainedTroops = training.trainTroopers();
+        List<Trooper> trainedTroops = train.trainTroopers();
         barrackRepository.save(trainedTroops);
         return trainedTroops;
     }
