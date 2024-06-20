@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepositoryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-06-20T18:31:33" hostname="LAPTOP-205J7BQ6" time="0.016">
+<testsuite name="org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepositoryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-06-20T19:10:53" hostname="LAPTOP-205J7BQ6" time="0.011">
   <properties/>
-  <testcase name="shouldBeAbleToInsertBarbarianIntoRepository()" classname="org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepositoryTest" time="0.005"/>
+  <testcase name="shouldBeAbleToInsertBarbarianIntoRepository()" classname="org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepositoryTest" time="0.003"/>
   <testcase name="shouldBeAbleToInsertArcherIntoRepository()" classname="org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepositoryTest" time="0.004"/>
-  <testcase name="shouldBeAbleToGetTroopers()" classname="org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepositoryTest" time="0.005"/>
+  <testcase name="shouldBeAbleToGetTroopers()" classname="org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepositoryTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

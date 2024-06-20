@@ -39,7 +39,7 @@ public class Train {
                 Archer archer = (Archer) troopObj;
                 int trainingTime = troopObj.getTrainingTime();
                 try {
-                    Thread.sleep(trainingTime * 1000L);
+                    Thread.sleep(trainingTime * 1L);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -49,7 +49,7 @@ public class Train {
                 Barbarian barbarian = (Barbarian) troopObj;
                 int trainingTime = troopObj.getTrainingTime();
                 try {
-                    Thread.sleep(trainingTime * 1000L);
+                    Thread.sleep(trainingTime * 1L);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

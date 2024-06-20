@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.amaap.troopsimulationgame.domain.model.entity.TrooperTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2024-06-20T18:31:33" hostname="LAPTOP-205J7BQ6" time="0.016">
+<testsuite name="org.amaap.troopsimulationgame.domain.model.entity.TrooperTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2024-06-20T19:10:52" hostname="LAPTOP-205J7BQ6" time="0.017">
   <properties/>
   <testcase name="shouldBeAbleToGetTrainingTimeOfBarbarian()" classname="org.amaap.troopsimulationgame.domain.model.entity.TrooperTest" time="0.0"/>
-  <testcase name="shouldBeAbleToGetTrainingTimeOfArcher()" classname="org.amaap.troopsimulationgame.domain.model.entity.TrooperTest" time="0.0"/>
-  <testcase name="shouldBeEqualWhenTrooperAttributesAreSame()" classname="org.amaap.troopsimulationgame.domain.model.entity.TrooperTest" time="0.0"/>
+  <testcase name="shouldBeAbleToGetTrainingTimeOfArcher()" classname="org.amaap.troopsimulationgame.domain.model.entity.TrooperTest" time="0.001"/>
+  <testcase name="shouldBeEqualWhenTrooperAttributesAreSame()" classname="org.amaap.troopsimulationgame.domain.model.entity.TrooperTest" time="0.001"/>
   <testcase name="shouldBeAbleToGetTrainingCostOfBarbarian()" classname="org.amaap.troopsimulationgame.domain.model.entity.TrooperTest" time="0.001"/>
   <testcase name="shouldBeAbleToGetTrainingCostOfArcher()" classname="org.amaap.troopsimulationgame.domain.model.entity.TrooperTest" time="0.001"/>
-  <testcase name="shouldThrowExceptionForInvalidTrainingCost()" classname="org.amaap.troopsimulationgame.domain.model.entity.TrooperTest" time="0.002"/>
-  <testcase name="shouldThrowExceptionForInvalidTrainingTime()" classname="org.amaap.troopsimulationgame.domain.model.entity.TrooperTest" time="0.001"/>
-  <testcase name="shouldBeAbleToGetInstanceOfBarbarian()" classname="org.amaap.troopsimulationgame.domain.model.entity.TrooperTest" time="0.002"/>
+  <testcase name="shouldBeAbleToGetInstanceOfBarbarian()" classname="org.amaap.troopsimulationgame.domain.model.entity.TrooperTest" time="0.001"/>
   <testcase name="shouldBeAbleToGetInstanceOfArcher()" classname="org.amaap.troopsimulationgame.domain.model.entity.TrooperTest" time="0.001"/>
   <testcase name="shouldNotBeEqualWhenTrooperAttributesAreDifferent()" classname="org.amaap.troopsimulationgame.domain.model.entity.TrooperTest" time="0.002"/>
   <testcase name="shouldNotBeEqualWhenTrooperTypesAreDifferent()" classname="org.amaap.troopsimulationgame.domain.model.entity.TrooperTest" time="0.001"/>

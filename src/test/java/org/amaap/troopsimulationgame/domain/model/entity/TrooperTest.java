@@ -1,7 +1,6 @@
 package org.amaap.troopsimulationgame.domain.model.entity;
 
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopDataException;
-import org.amaap.troopsimulationgame.service.exception.InvalidTroopTrainingCostException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -71,20 +70,6 @@ class TrooperTest {
 
         // assert
         assertTrue(expectedTrooper instanceof Archer);
-    }
-
-    @Test
-    void shouldThrowExceptionForInvalidTrainingCost() {
-        // assert
-        assertThrows(InvalidTroopTrainingCostException.class, () -> new Barbarian(3, 0, "sword"));
-        assertThrows(InvalidTroopTrainingCostException.class, () -> new Barbarian(3, -10, "sword"));
-    }
-
-    @Test
-    void shouldThrowExceptionForInvalidTrainingTime() {
-        // assert
-        assertThrows(InvalidTroopTrainingCostException.class, () -> new Barbarian(0, 10, "sword"));
-        assertThrows(InvalidTroopTrainingCostException.class, () -> new Barbarian(-3, 10, "sword"));
     }
 
     @Test

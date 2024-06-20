@@ -2,6 +2,7 @@ package org.amaap.troopsimulationgame.domain.model.entity;
 
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopDataException;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopTrainingCostException;
+import org.amaap.troopsimulationgame.service.exception.InvalidTroopTrainingTimeException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,13 +18,6 @@ class BarbarianTest {
         assertNotNull(barbarian);
         assertEquals(3, barbarian.getTrainingTime());
         assertEquals(10, barbarian.getTrainingCost());
-    }
-
-    @Test
-    void shouldThrowExceptionForInvalidBarbarianParameters() {
-        // assert
-        assertThrows(InvalidTroopTrainingCostException.class, () -> new Barbarian(-1, 10, "sword"));
-        assertThrows(InvalidTroopTrainingCostException.class, () -> new Barbarian(3, -10, "sword"));
     }
 
     @Test

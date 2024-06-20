@@ -1,35 +1,26 @@
 package org.amaap.troopsimulationgame.controller.dto;
 
+import java.util.Objects;
+
 public class Response {
-    private HttpStatus status;
-    private String message;
-    private int count;
+    private final HttpStatus httpStatus;
+    private final String message;
 
-    public Response(HttpStatus status, String message) {
-        this.status = status;
+    public Response(HttpStatus httpStatus, String message) {
+        this.httpStatus = httpStatus;
         this.message = message;
-    }
-
-    public Response(HttpStatus status, String message, int count) {
-        this.status = status;
-        this.message = message;
-        this.count = count;
-    }
-
-    public HttpStatus getStatus() {
-        return status;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public int getCount() {
-        return count;
     }
 
     @Override
-    public String toString() {
-        return message + ": " + count;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Response response = (Response) o;
+        return httpStatus == response.httpStatus && Objects.equals(message, response.message);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(httpStatus, message);
     }
 }

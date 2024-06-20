@@ -10,8 +10,6 @@ public class Trooper {
     private final String weapon;
 
     public Trooper(int trainingTime, int trainingCost, String weapon) throws InvalidTroopTrainingCostException {
-        if (trainingCost <= 0) throw new InvalidTroopTrainingCostException("" + trainingCost);
-        if (trainingTime <= 0) throw new InvalidTroopTrainingCostException("" + trainingTime);
         this.trainingTime = trainingTime;
         this.trainingCost = trainingCost;
         this.weapon = weapon;

@@ -27,10 +27,10 @@ public class ArmyCampController {
 
     public Response getTroopersCountFor(String troopType) {
         try {
-            int count = armyCampService.getTroopersCountFor(troopType);
-            return new Response(HttpStatus.OK, "Troops Available in ArmyCamp", count);
+            armyCampService.getTroopersCountFor(troopType);
+            return new Response(HttpStatus.OK, "Troops Available in ArmyCamp");
         } catch (Exception exception) {
-            return new Response(HttpStatus.BAD_REQUEST, "No Troops in ArmyCamp For this TroopType", 0);
+            return new Response(HttpStatus.BAD_REQUEST, "No Troops in ArmyCamp For this TroopType");
         }
     }
 }
