@@ -10,12 +10,12 @@ import org.amaap.troopsimulationgame.service.exception.InvalidTroopTypeException
 import java.util.ArrayList;
 import java.util.List;
 
-public class Training {
+public class Train {
     private static final int MAX_CAPACITY = 10;
     private final BarrackRepository barrackRepository;
 
     @Inject
-    public Training(BarrackRepository barrackRepository) {
+    public Train(BarrackRepository barrackRepository) {
         this.barrackRepository = barrackRepository;
     }
 
@@ -32,7 +32,7 @@ public class Training {
 
     private List<Trooper> trainBatch(List<Trooper> batch) {
         List<Trooper> trainedTroops = new ArrayList<>();
-        System.out.println("Troops are Training...");
+        System.out.println("Troops are Train...");
         for (int i = 0; i < batch.size(); i++) {
             Trooper troopObj = batch.get(i);
             if (troopObj instanceof Archer) {
@@ -57,7 +57,7 @@ public class Training {
             }
 
         }
-        System.out.println("Training Completed...");
+        System.out.println("Train Completed...");
         return trainedTroops;
     }
 
