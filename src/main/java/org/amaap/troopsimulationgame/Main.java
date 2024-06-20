@@ -4,6 +4,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import org.amaap.troopsimulationgame.controller.ArmyCampController;
 import org.amaap.troopsimulationgame.controller.BarrackController;
+import org.amaap.troopsimulationgame.controller.dto.Response;
 import org.amaap.troopsimulationgame.service.ArmyCampService;
 import org.amaap.troopsimulationgame.service.BarrackService;
 import org.amaap.troopsimulationgame.service.exception.InvalidTroopCountException;
@@ -72,10 +73,11 @@ public class Main {
                     break;
 
                 case 2:
-                    System.out.println("Trained Archer: " + armyCampService.getTroopersCountFor("archer"));
-                    System.out.println("Trained Barbarian: " + armyCampService.getTroopersCountFor("barbarian"));
+                    Response archerResponse = armyCampController.getTroopersCountFor("archer");
+                    Response barbarianResponse = armyCampController.getTroopersCountFor("barbarian");
+                    System.out.println("Trained Archer: " + archerResponse.getCount());
+                    System.out.println("Trained Barbarian: " + barbarianResponse.getCount());
                     break;
-
                 case 3:
                     running = false;
                     break;
