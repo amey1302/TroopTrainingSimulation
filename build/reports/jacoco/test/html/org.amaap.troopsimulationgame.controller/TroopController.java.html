@@ -19,7 +19,7 @@ public class TroopController {
 <span class="fc" id="L19">            troopService.create(troopType, trainingTime, trainingCost, weapon);</span>
 <span class="fc" id="L20">            return new Response(HttpStatus.OK, &quot;Troop Created Successfully&quot;);</span>
 <span class="fc" id="L21">        } catch (InvalidTroopDataException exception) {</span>
-<span class="fc" id="L22">            return new Response(HttpStatus.BAD_REQUEST, &quot;Invalid Input Parameter &quot; + exception.getMessage());</span>
+<span class="fc" id="L22">            return new Response(HttpStatus.BAD_REQUEST, &quot;&quot; + exception.getMessage());</span>
         }
     }
 }

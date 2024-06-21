@@ -4,7 +4,7 @@ import com.google.inject.Inject;
 import org.amaap.troopsimulationgame.domain.model.entity.Archer;
 import org.amaap.troopsimulationgame.domain.model.entity.Barbarian;
 import org.amaap.troopsimulationgame.domain.model.entity.Trooper;
-import org.amaap.troopsimulationgame.domain.service.Training;
+import org.amaap.troopsimulationgame.domain.service.Train;
 import org.amaap.troopsimulationgame.repository.BarrackRepository;
 import org.amaap.troopsimulationgame.service.exception.*;
 
@@ -14,18 +14,18 @@ import static org.amaap.troopsimulationgame.service.validator.TroopValidator.isI
 
 public class BarrackService {
     private BarrackRepository barrackRepository;
-    private Training training;
+    private Train train;
 
     @Inject
-<span class="fc" id="L20">    public BarrackService(BarrackRepository barrackRepository, Training training) {</span>
+<span class="fc" id="L20">    public BarrackService(BarrackRepository barrackRepository, Train train) {</span>
 <span class="fc" id="L21">        this.barrackRepository = barrackRepository;</span>
-<span class="fc" id="L22">        this.training = training;</span>
+<span class="fc" id="L22">        this.train = train;</span>
 <span class="fc" id="L23">    }</span>
 
     public void create(int troopCount, String troopType) throws InvalidTroopDataException {
-<span class="pc bpc" id="L26" title="1 of 2 branches missed.">        if (troopCount &lt;= 0) throw new InvalidTroopCountException(&quot;&quot; + troopCount);</span>
-<span class="pc bpc" id="L27" title="1 of 2 branches missed.">        if (troopCount &gt; 10) throw new BarrackCapacityFullException(&quot;&quot; + troopCount);</span>
-<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (isInvalid(troopType)) throw new InvalidTroopTypeException(&quot;&quot; + troopType);</span>
+<span class="pc bpc" id="L26" title="1 of 2 branches missed.">        if (troopCount &lt;= 0) throw new InvalidTroopCountException(&quot;Invalid Troop Count&quot; + troopCount);</span>
+<span class="pc bpc" id="L27" title="1 of 2 branches missed.">        if (troopCount &gt; 10) throw new BarrackCapacityFullException(&quot;Barrack Capacity is Full&quot; + troopCount);</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (isInvalid(troopType)) throw new InvalidTroopTypeException(&quot;Invalid TroopType&quot; + troopType);</span>
 <span class="fc bfc" id="L29" title="All 2 branches covered.">        for (int i = 0; i &lt; troopCount; i++) {</span>
 <span class="pc bpc" id="L30" title="1 of 4 branches missed.">            if (&quot;Barbarian&quot;.equals(troopType) || &quot;barbarian&quot;.equals(troopType)) {</span>
 <span class="fc" id="L31">                barrackRepository.insert(new Barbarian(3, 10, &quot;sword&quot;));</span>
@@ -36,7 +36,7 @@ public class BarrackService {
 <span class="fc" id="L36">    }</span>
 
     public List&lt;Trooper&gt; train() throws InvalidTroopTypeException {
-<span class="fc" id="L39">        List&lt;Trooper&gt; trainedTroops = training.trainTroopers();</span>
+<span class="fc" id="L39">        List&lt;Trooper&gt; trainedTroops = train.trainTroopers();</span>
 <span class="fc" id="L40">        barrackRepository.save(trainedTroops);</span>
 <span class="fc" id="L41">        return trainedTroops;</span>
     }

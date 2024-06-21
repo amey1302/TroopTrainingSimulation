@@ -17,74 +17,73 @@ import java.util.Scanner;
 <span class="nc" id="L17">        BarrackService barrackService = injector.getInstance(BarrackService.class);</span>
 <span class="nc" id="L18">        BarrackController barrackController = injector.getInstance(BarrackController.class);</span>
 <span class="nc" id="L19">        ArmyCampService armyCampService = injector.getInstance(ArmyCampService.class);</span>
-<span class="nc" id="L20">        ArmyCampController armyCampController = injector.getInstance(ArmyCampController.class);</span>
-<span class="nc" id="L21">        Scanner scanner = new Scanner(System.in);</span>
+<span class="nc" id="L20">        Scanner scanner = new Scanner(System.in);</span>
 
-<span class="nc" id="L23">        boolean running = true;</span>
-<span class="nc bnc" id="L24" title="All 2 branches missed.">        while (running) {</span>
-<span class="nc" id="L25">            System.out.println(&quot;troop-training &gt; start-training&quot;);</span>
-<span class="nc" id="L26">            System.out.println(&quot;1. Train troops&quot;);</span>
-<span class="nc" id="L27">            System.out.println(&quot;2. View troop camp&quot;);</span>
-<span class="nc" id="L28">            System.out.println(&quot;3. Exit&quot;);</span>
-<span class="nc" id="L29">            System.out.print(&quot;What do you want to do? &quot;);</span>
-<span class="nc" id="L30">            int choice = scanner.nextInt();</span>
+<span class="nc" id="L22">        boolean running = true;</span>
+<span class="nc bnc" id="L23" title="All 2 branches missed.">        while (running) {</span>
+<span class="nc" id="L24">            System.out.println(&quot;troop-training &gt; start-training&quot;);</span>
+<span class="nc" id="L25">            System.out.println(&quot;1. Train troops&quot;);</span>
+<span class="nc" id="L26">            System.out.println(&quot;2. View troop camp&quot;);</span>
+<span class="nc" id="L27">            System.out.println(&quot;3. Exit&quot;);</span>
+<span class="nc" id="L28">            System.out.print(&quot;What do you want to do? &quot;);</span>
+<span class="nc" id="L29">            int choice = scanner.nextInt();</span>
 
-<span class="nc bnc" id="L32" title="All 4 branches missed.">            switch (choice) {</span>
+<span class="nc bnc" id="L31" title="All 4 branches missed.">            switch (choice) {</span>
                 case 1:
-<span class="nc" id="L34">                    int troopChoice = 0;</span>
+<span class="nc" id="L33">                    int troopChoice = 0;</span>
                     while (true) {
-<span class="nc" id="L36">                        System.out.println(&quot;1. Archer&quot;);</span>
-<span class="nc" id="L37">                        System.out.println(&quot;2. Barbarian&quot;);</span>
-<span class="nc" id="L38">                        System.out.print(&quot;Which troop do you want to train? &quot;);</span>
-<span class="nc" id="L39">                        troopChoice = scanner.nextInt();</span>
-<span class="nc bnc" id="L40" title="All 4 branches missed.">                        if (troopChoice == 1 || troopChoice == 2) {</span>
-<span class="nc" id="L41">                            break;</span>
+<span class="nc" id="L35">                        System.out.println(&quot;1. Archer&quot;);</span>
+<span class="nc" id="L36">                        System.out.println(&quot;2. Barbarian&quot;);</span>
+<span class="nc" id="L37">                        System.out.print(&quot;Which troop do you want to train? &quot;);</span>
+<span class="nc" id="L38">                        troopChoice = scanner.nextInt();</span>
+<span class="nc bnc" id="L39" title="All 4 branches missed.">                        if (troopChoice == 1 || troopChoice == 2) {</span>
+<span class="nc" id="L40">                            break;</span>
                         } else {
-<span class="nc" id="L43">                            System.out.println(&quot;Invalid troop choice. Please enter 1 for Archer or 2 for Barbarian.&quot;);</span>
+<span class="nc" id="L42">                            System.out.println(&quot;Invalid troop choice. Please enter 1 for Archer or 2 for Barbarian.&quot;);</span>
                         }
                     }
 
-<span class="nc" id="L47">                    int troopCount = 0;</span>
-<span class="nc" id="L48">                    boolean validCount = false;</span>
-<span class="nc bnc" id="L49" title="All 2 branches missed.">                    while (!validCount) {</span>
-<span class="nc" id="L50">                        System.out.print(&quot;How many troops do you want to train? &quot;);</span>
-<span class="nc" id="L51">                        troopCount = scanner.nextInt();</span>
+<span class="nc" id="L46">                    int troopCount = 0;</span>
+<span class="nc" id="L47">                    boolean validCount = false;</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">                    while (!validCount) {</span>
+<span class="nc" id="L49">                        System.out.print(&quot;How many troops do you want to train? &quot;);</span>
+<span class="nc" id="L50">                        troopCount = scanner.nextInt();</span>
                         try {
-<span class="nc bnc" id="L53" title="All 2 branches missed.">                            if (troopCount &lt;= 0) {</span>
-<span class="nc" id="L54">                                throw new InvalidTroopCountException(&quot;&quot; + troopCount);</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">                            if (troopCount &lt;= 0) {</span>
+<span class="nc" id="L53">                                throw new InvalidTroopCountException(&quot;&quot; + troopCount);</span>
                             }
-<span class="nc bnc" id="L56" title="All 2 branches missed.">                            if (troopCount &gt; 10) {</span>
-<span class="nc" id="L57">                                System.out.println(&quot;Maximum 10 troops can be trained. Please enter a valid number.&quot;);</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">                            if (troopCount &gt; 10) {</span>
+<span class="nc" id="L56">                                System.out.println(&quot;Maximum 10 troops can be trained. Please enter a valid number.&quot;);</span>
                             } else {
-<span class="nc" id="L59">                                validCount = true;</span>
+<span class="nc" id="L58">                                validCount = true;</span>
                             }
-<span class="nc" id="L61">                        } catch (InvalidTroopCountException e) {</span>
-<span class="nc" id="L62">                            System.out.println(&quot;Troop count must be greater than zero. Please enter a valid number.&quot;);</span>
-<span class="nc" id="L63">                        }</span>
+<span class="nc" id="L60">                        } catch (InvalidTroopCountException e) {</span>
+<span class="nc" id="L61">                            System.out.println(&quot;Troop count must be greater than zero. Please enter a valid number.&quot;);</span>
+<span class="nc" id="L62">                        }</span>
                     }
 
-<span class="nc bnc" id="L66" title="All 2 branches missed.">                    String troopType = (troopChoice == 1) ? &quot;Archer&quot; : &quot;Barbarian&quot;;</span>
+<span class="nc bnc" id="L65" title="All 2 branches missed.">                    String troopType = (troopChoice == 1) ? &quot;Archer&quot; : &quot;Barbarian&quot;;</span>
 
-<span class="nc" id="L68">                    barrackController.create(troopCount, troopType);</span>
-<span class="nc" id="L69">                    barrackController.trainTroopers();</span>
-<span class="nc" id="L70">                    armyCampService.calculateTroopCount(&quot;archer&quot;);</span>
-<span class="nc" id="L71">                    armyCampService.calculateTroopCount(&quot;barbarian&quot;);</span>
-<span class="nc" id="L72">                    break;</span>
+<span class="nc" id="L67">                    barrackController.create(troopCount, troopType);</span>
+<span class="nc" id="L68">                    barrackController.trainTroopers();</span>
+<span class="nc" id="L69">                    armyCampService.calculateTroopCount(&quot;archer&quot;);</span>
+<span class="nc" id="L70">                    armyCampService.calculateTroopCount(&quot;barbarian&quot;);</span>
+<span class="nc" id="L71">                    break;</span>
 
                 case 2:
-<span class="nc" id="L75">                    System.out.println(&quot;Trained Archer: &quot; + armyCampService.getTroopersCountFor(&quot;archer&quot;));</span>
-<span class="nc" id="L76">                    System.out.println(&quot;Trained Barbarian: &quot; + armyCampService.getTroopersCountFor(&quot;barbarian&quot;));</span>
-<span class="nc" id="L77">                    break;</span>
+<span class="nc" id="L74">                    System.out.println(&quot;Trained Archer: &quot; + armyCampService.getTroopersCountFor(&quot;archer&quot;));</span>
+<span class="nc" id="L75">                    System.out.println(&quot;Trained Barbarian: &quot; + armyCampService.getTroopersCountFor(&quot;barbarian&quot;));</span>
+<span class="nc" id="L76">                    break;</span>
 
                 case 3:
-<span class="nc" id="L80">                    running = false;</span>
-<span class="nc" id="L81">                    break;</span>
+<span class="nc" id="L79">                    running = false;</span>
+<span class="nc" id="L80">                    break;</span>
 
                 default:
-<span class="nc" id="L84">                    System.out.println(&quot;Invalid choice. Please try again.&quot;);</span>
+<span class="nc" id="L83">                    System.out.println(&quot;Invalid choice. Please try again.&quot;);</span>
             }
-<span class="nc" id="L86">        }</span>
-<span class="nc" id="L87">        System.out.println(&quot;Thank you for using Troop Simulation Game!!&quot;);</span>
-<span class="nc" id="L88">    }</span>
+<span class="nc" id="L85">        }</span>
+<span class="nc" id="L86">        System.out.println(&quot;Thank you for using Troop Simulation Game!!&quot;);</span>
+<span class="nc" id="L87">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

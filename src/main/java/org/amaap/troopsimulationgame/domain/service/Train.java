@@ -33,32 +33,22 @@ public class Train {
     private List<Trooper> trainBatch(List<Trooper> batch) {
         List<Trooper> trainedTroops = new ArrayList<>();
         System.out.println("Troops are Training...");
-        for (int i = 0; i < batch.size(); i++) {
-            Trooper troopObj = batch.get(i);
-            if (troopObj instanceof Archer) {
-                Archer archer = (Archer) troopObj;
-                int trainingTime = troopObj.getTrainingTime();
-                try {
-                    Thread.sleep(trainingTime * 1L);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                trainedTroops.add(troopObj);
 
-            } else if (troopObj instanceof Barbarian) {
-                Barbarian barbarian = (Barbarian) troopObj;
-                int trainingTime = troopObj.getTrainingTime();
-                try {
-                    Thread.sleep(trainingTime * 1L);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                trainedTroops.add(troopObj);
+        for (Trooper troop : batch) {
+            int trainingTime = troop.getTrainingTime();
+
+            try {
+                Thread.sleep(trainingTime * 1000L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
 
+            trainedTroops.add(troop);
         }
+
         System.out.println("Training Completed...");
         return trainedTroops;
     }
+
 
 }

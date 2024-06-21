@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TroopModule.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TroopSimulation</a> &gt; <a href="index.source.html" class="el_package">org.amaap.troopsimulationgame</a> &gt; <span class="el_source">TroopModule.java</span></div><h1>TroopModule.java</h1><pre class="source lang-java linenums">package org.amaap.troopsimulationgame;
 
 import com.google.inject.AbstractModule;
-import org.amaap.troopsimulationgame.controller.ArmyCampController;
 import org.amaap.troopsimulationgame.repository.ArmyCampRepository;
 import org.amaap.troopsimulationgame.repository.BarrackRepository;
 import org.amaap.troopsimulationgame.repository.TroopRepository;
@@ -11,13 +10,13 @@ import org.amaap.troopsimulationgame.repository.impl.InMemoryTroopRepository;
 import org.amaap.troopsimulationgame.repository.impl.db.InMemoryDatabase;
 import org.amaap.troopsimulationgame.repository.impl.db.impl.FakeDatabase;
 
-<span class="fc" id="L14">public class TroopModule extends AbstractModule {</span>
+<span class="fc" id="L13">public class TroopModule extends AbstractModule {</span>
     @Override
     protected void configure() {
-<span class="fc" id="L17">        bind(TroopRepository.class).to(InMemoryTroopRepository.class);</span>
-<span class="fc" id="L18">        bind(BarrackRepository.class).to(InMemoryBarrackRepository.class);</span>
-<span class="fc" id="L19">        bind(ArmyCampRepository.class).to(InMemoryArmyCampRepository.class);</span>
-<span class="fc" id="L20">        bind(InMemoryDatabase.class).to(FakeDatabase.class).asEagerSingleton();</span>
-<span class="fc" id="L21">    }</span>
+<span class="fc" id="L16">        bind(TroopRepository.class).to(InMemoryTroopRepository.class);</span>
+<span class="fc" id="L17">        bind(BarrackRepository.class).to(InMemoryBarrackRepository.class);</span>
+<span class="fc" id="L18">        bind(ArmyCampRepository.class).to(InMemoryArmyCampRepository.class);</span>
+<span class="fc" id="L19">        bind(InMemoryDatabase.class).to(FakeDatabase.class).asEagerSingleton();</span>
+<span class="fc" id="L20">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
